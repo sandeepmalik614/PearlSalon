@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 import static com.pearl.salon.utils.AppUtils.openNumberKeyboard;
 import static com.pearl.salon.utils.AppUtils.setBarTransparent;
+import static com.pearl.salon.utils.AppUtils.showTopToast;
 
 public class OtpVerificationActivity extends AppCompatActivity {
 
@@ -71,16 +72,12 @@ public class OtpVerificationActivity extends AppCompatActivity {
     }
 
     public void verifyOtp(View view) {
-        Toast toast = null;
-        toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
         if (edt_otp_one.getText().toString().isEmpty() || edt_otp_two.getText().toString().isEmpty() ||
                 edt_otp_three.getText().toString().isEmpty() || edt_otp_four.getText().toString().isEmpty()) {
-            toast = Toast.makeText(this, "Enter a valid OTP", Toast.LENGTH_SHORT);
+            showTopToast(this, "Please enter valid OTP");
         } else {
-            toast = Toast.makeText(this, "OTP verified", Toast.LENGTH_SHORT);
             startActivity(new Intent(this, ResetPasswordActivity.class));
         }
-        toast.show();
     }
 
     public void optBackButton(View view) {

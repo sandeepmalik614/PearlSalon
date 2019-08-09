@@ -2,9 +2,11 @@ package com.pearl.salon.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class AppUtils {
 
@@ -38,6 +40,22 @@ public class AppUtils {
         }else {
             return false;
         }
+    }
+
+    public static void showTopToast(Activity activity, String message){
+        Toast toast = Toast.makeText(activity, message, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
+        toast.show();
+    }
+
+    public static void showCentreToast(Activity activity, String message){
+        Toast toast = Toast.makeText(activity, message, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER | Gravity.CENTER_HORIZONTAL, 0, 0);
+        toast.show();
+    }
+
+    public static void showBottomToast(Activity activity, String message){
+        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
     }
 
 }
