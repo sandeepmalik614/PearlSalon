@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -11,6 +12,8 @@ import com.pearl.salon.R;
 import com.pearl.salon.utils.AppUtils;
 
 public class SocialLoginActivity extends AppCompatActivity {
+
+    private boolean doublePressedExit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +25,21 @@ public class SocialLoginActivity extends AppCompatActivity {
 
     public void goToLogin(View view) {
         startActivity(new Intent(this, SimpleLoginActivity.class));
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(doublePressedExit){
+            super.onBackPressed();
+        }else{
+            AppUtils.showBottomToast(this, "Please click BACK again to exit");
+            doublePressedExit = true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    doublePressedExit = false;
+                }
+            }, 2000);
+        }
     }
 }

@@ -19,21 +19,19 @@
             android:background="@drawable/icon" />
 
         <TextView
+            android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Code has been sent to reset a new password."
             android:textColor="@android:color/black"
             android:layout_marginTop="8dp"
-            android:textSize="22dp"
-            android:gravity="center_horizontal"
-            android:textStyle="bold"/>
+            style="@style/headingTextStyle"/>
 
         <TextView
+            android:id="@+id/textView19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:gravity="center_horizontal"
-            android:text="You'll shortly receive an email with a code to setup a new password."/>
+            android:gravity="center_horizontal" />
 
         <Button
             android:id="@+id/btn_dialogDone"

@@ -18,7 +18,7 @@ public class AppPrefference {
         mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
         mPrefsEditor = mPrefs.edit();
         mPrefsEditor.putBoolean("isLoggedIn", value);
-        mPrefsEditor.commit();
+        mPrefsEditor.apply();
     }
 
     public static boolean isIntroComplete(Context ctx) {
@@ -30,14 +30,38 @@ public class AppPrefference {
         mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
         mPrefsEditor = mPrefs.edit();
         mPrefsEditor.putBoolean("intro", value);
-        mPrefsEditor.commit();
+        mPrefsEditor.apply();
+    }
+
+    public static void setUserMobileNumber(Context ctx, String mobile){
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        mPrefsEditor = mPrefs.edit();
+        mPrefsEditor.putString("userMobile", mobile);
+        mPrefsEditor.apply();
+    }
+
+    public static String getUserMobileNumber(Context ctx){
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        return mPrefs.getString("userMobile", "");
+    }
+
+    public static void setUserEmail(Context ctx, String email){
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        mPrefsEditor = mPrefs.edit();
+        mPrefsEditor.putString("userEmail", email);
+        mPrefsEditor.apply();
+    }
+
+    public static String getUserEmail(Context ctx){
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        return mPrefs.getString("userEmail", "");
     }
 
     public static void clearAllPreferences(Context ctx) {
         mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
         mPrefsEditor = mPrefs.edit();
         mPrefsEditor.clear();
-        mPrefsEditor.commit();
+        mPrefsEditor.apply();
     }
 
 }

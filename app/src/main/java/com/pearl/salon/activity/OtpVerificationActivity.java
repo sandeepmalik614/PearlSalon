@@ -31,6 +31,7 @@ public class OtpVerificationActivity extends AppCompatActivity {
     private EditText edt_otp_one, edt_otp_two, edt_otp_three, edt_otp_four;
     private TextView tv_timer;
     private OtpTimer otpTimer;
+    private String fromScreen = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,8 @@ public class OtpVerificationActivity extends AppCompatActivity {
             }
         });
 
+        fromScreen = getIntent().getStringExtra("screenName");
+
         openNumberKeyboard(edt_otp_one, this);
     }
 
@@ -76,7 +79,14 @@ public class OtpVerificationActivity extends AppCompatActivity {
                 edt_otp_three.getText().toString().isEmpty() || edt_otp_four.getText().toString().isEmpty()) {
             showTopToast(this, "Please enter valid OTP");
         } else {
-            startActivity(new Intent(this, ResetPasswordActivity.class));
+            Intent intent = null;
+            if(fromScreen.equalsIgnoreCase("MobileVerify")){
+                intent = new Intent(this, RegisterActivity.class);
+            }else{
+                intent = new Intent(this, ResetPasswordActivity.class);
+            }
+            startActivity(intent);
+            finish();
         }
     }
 
@@ -98,7 +108,7 @@ public class OtpVerificationActivity extends AppCompatActivity {
         public void onFinish() {
             tv_timer.setClickable(true);
             tv_timer.setEnabled(true);
-            tv_timer.setText("Resend Otp");
+            tv_timer.setText("Resend a new code.");
             tv_timer.setTextColor(Color.parseColor("#fe9353"));
         }
     }

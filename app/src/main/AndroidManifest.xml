@@ -11,9 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.ResetPasswordActivity"></activity>
-        <activity android:name=".activity.OtpVerificationActivity" />
-        <activity android:name=".activity.ForgotPasswordActivity" />
+        <activity android:name=".activity.RegisterMobileVerifyActvity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ResetPasswordActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.OtpVerificationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ForgotPasswordActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.RegisterActivity"
             android:screenOrientation="portrait" />

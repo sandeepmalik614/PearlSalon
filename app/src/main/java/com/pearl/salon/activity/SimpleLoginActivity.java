@@ -20,7 +20,7 @@ public class SimpleLoginActivity extends AppCompatActivity {
     }
 
     public void goToRegister(View view) {
-
+        startActivity(new Intent(SimpleLoginActivity.this, RegisterMobileVerifyActvity.class));
     }
 
     public void goToForgot(View view) {

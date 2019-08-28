@@ -8,5 +8,14 @@
     <string name="forgot_placeholder">Please enter your email address. you will receive a code to create a new password via email.</string>
     <string name="social_placeholder">Book an appointment for\nSalon, Spa &amp; Barber.</string>
     <string name="reset_password">Please create a new password. Your new password or confirm password should be same.</string>
+    <string name="signup_condition">By continuing <b>Sign up</b> you agree to the following <b>Terms &amp; Conditions</b> without reservation.</string>
+    <string name="already_have_an_account">Already have an account? <font color='#fe9353'>Sign in</font></string>
+    <string name="login_social">Or login with <font color='#fe9353'>Social Network</font></string>
+    <string name="mobile_verify">We will be send you an SMS with code after enter a valid mobile number to verify your Mobile Number.</string>
 
+    <string name="mobile_verify_popup_text1">Code has been sent to verify mobile number.</string>
+    <string name="mobile_verify_popup_text2">You will shortly receive a SMS with a code to verify your Mobile number</string>
+
+    <string name="forgot_password_popup_text1">Code has been sent to reset a new password.</string>
+    <string name="forgot_password_popup_text2">You will shortly receive an EMAIL with a code to setup a new password.</string>
 </resources>

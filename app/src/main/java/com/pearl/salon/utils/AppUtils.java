@@ -1,12 +1,26 @@
 package com.pearl.salon.utils;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.pearl.salon.R;
+import com.pearl.salon.activity.OtpVerificationActivity;
+
+import java.util.Calendar;
+import java.util.Date;
 
 public class AppUtils {
 
@@ -58,4 +72,41 @@ public class AppUtils {
         Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
     }
 
+    public static void clearAllIntent(Intent intent){
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|
+                Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                Intent.FLAG_ACTIVITY_NEW_TASK);
+    }
+
+    public static void openCodeSentDialog(final Activity activity, final String screen) {
+        final Dialog dialog = new Dialog(activity);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.setContentView(R.layout.dialog_code_sent);
+
+        Button btn_done = dialog.findViewById(R.id.btn_dialogDone);
+        TextView tv_heading = dialog.findViewById(R.id.textView18);
+        TextView tv_small = dialog.findViewById(R.id.textView19);
+
+        if(screen.equalsIgnoreCase("MobileVerify")){
+            tv_heading.setText(R.string.mobile_verify_popup_text1);
+            tv_small.setText(R.string.mobile_verify_popup_text2);
+        }else {
+            tv_heading.setText(R.string.forgot_password_popup_text1);
+            tv_small.setText(R.string.forgot_password_popup_text2);
+        }
+
+        btn_done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                Intent intent = new Intent(activity, OtpVerificationActivity.class);
+                intent.putExtra("screenName", screen);
+                activity.startActivity(intent);
+            }
+        });
+
+        dialog.show();
+    }
 }

@@ -2,6 +2,7 @@ package com.pearl.salon.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
@@ -17,6 +18,7 @@ import com.pearl.salon.R;
 
 import static com.pearl.salon.utils.AppUtils.hideKeyboard;
 import static com.pearl.salon.utils.AppUtils.isValidEmail;
+import static com.pearl.salon.utils.AppUtils.openCodeSentDialog;
 import static com.pearl.salon.utils.AppUtils.setBarTransparent;
 import static com.pearl.salon.utils.AppUtils.showKeyboard;
 
@@ -52,26 +54,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             Toast.makeText(this, "Enter a valid email id", Toast.LENGTH_SHORT).show();
         } else {
             hideKeyboard(this);
-            openCodeSentDialog();
+            openCodeSentDialog(this, "ForgotPassword");
         }
-    }
-
-    private void openCodeSentDialog() {
-        final Dialog dialog = new Dialog(this);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-        dialog.setContentView(R.layout.dialog_code_sent);
-
-        Button btn_done = dialog.findViewById(R.id.btn_dialogDone);
-        btn_done.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-                startActivity(new Intent(ForgotPasswordActivity.this, OtpVerificationActivity.class));
-            }
-        });
-
-        dialog.show();
     }
 }

@@ -10,6 +10,8 @@ import android.widget.EditText;
 import com.pearl.salon.R;
 import com.pearl.salon.utils.AppUtils;
 
+import static com.pearl.salon.utils.AppUtils.clearAllIntent;
+
 public class ResetPasswordActivity extends AppCompatActivity {
 
     private EditText edt_new_pass, edt_con_pass;
@@ -38,9 +40,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
         }else{
             AppUtils.showBottomToast(this, "Password changed successfully");
             Intent intent = new Intent(this, SocialLoginActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|
-                    Intent.FLAG_ACTIVITY_CLEAR_TASK |
-                    Intent.FLAG_ACTIVITY_NEW_TASK);
+            clearAllIntent(intent);
             startActivity(intent);
             finish();
         }
