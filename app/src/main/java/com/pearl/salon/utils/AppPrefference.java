@@ -33,6 +33,18 @@ public class AppPrefference {
         mPrefsEditor.apply();
     }
 
+    public static void setUserId(Context ctx, String id){
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        mPrefsEditor = mPrefs.edit();
+        mPrefsEditor.putString("userId", id);
+        mPrefsEditor.apply();
+    }
+
+    public static String getUserId(Context ctx){
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        return mPrefs.getString("userId", "");
+    }
+
     public static void setUserMobileNumber(Context ctx, String mobile){
         mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
         mPrefsEditor = mPrefs.edit();
@@ -55,6 +67,30 @@ public class AppPrefference {
     public static String getUserEmail(Context ctx){
         mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
         return mPrefs.getString("userEmail", "");
+    }
+
+    public static void setUserName(Context ctx, String name){
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        mPrefsEditor = mPrefs.edit();
+        mPrefsEditor.putString("userName", name);
+        mPrefsEditor.apply();
+    }
+
+    public static String getUserName(Context ctx){
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        return mPrefs.getString("userName", "");
+    }
+
+    public static void setUserGender(Context ctx, String gender){
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        mPrefsEditor = mPrefs.edit();
+        mPrefsEditor.putString("userGender", gender);
+        mPrefsEditor.apply();
+    }
+
+    public static String getUserGender(Context ctx){
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        return mPrefs.getString("userGender", "");
     }
 
     public static void clearAllPreferences(Context ctx) {

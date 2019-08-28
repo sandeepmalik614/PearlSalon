@@ -15,6 +15,10 @@ import com.pearl.salon.R;
 import com.pearl.salon.utils.AppPrefference;
 import com.pearl.salon.utils.AppUtils;
 
+import static com.pearl.salon.utils.AppPrefference.setUserEmail;
+import static com.pearl.salon.utils.AppPrefference.setUserGender;
+import static com.pearl.salon.utils.AppPrefference.setUserLoggedOut;
+import static com.pearl.salon.utils.AppPrefference.setUserName;
 import static com.pearl.salon.utils.AppUtils.clearAllIntent;
 import static com.pearl.salon.utils.AppUtils.isValidEmail;
 import static com.pearl.salon.utils.AppUtils.showBottomToast;
@@ -36,6 +40,8 @@ public class RegisterActivity extends AppCompatActivity {
         edt_dob = findViewById(R.id.editText7);
         edt_pass = findViewById(R.id.editText8);
         edt_conPass = findViewById(R.id.editText9);
+        rb_male = findViewById(R.id.rb_male);
+        rb_female = findViewById(R.id.rb_female);
 
         if(!AppPrefference.getUserMobileNumber(this).isEmpty()){
             edt_phone.setText(AppPrefference.getUserMobileNumber(this));
@@ -71,7 +77,19 @@ public class RegisterActivity extends AppCompatActivity {
         }else if(!edt_pass.getText().toString().equals(edt_conPass.getText().toString())){
             showBottomToast(this, "Password and Confirm Password should be same");
         }else {
-            showBottomToast(this, "Password and Confirm Password should be same");
+            showBottomToast(this, "You have registered successfully");
+            setUserLoggedOut(this, false);
+            setUserName(this, edt_name.getText().toString());
+            setUserEmail(this, edt_email.getText().toString());
+            if(rb_male.isChecked()){
+                setUserGender(this,"Male");
+            }else if(rb_female.isChecked()){
+                setUserGender(this,"Female");
+            }
+            Intent intent = new Intent(this, MainActivity.class);
+            clearAllIntent(intent);
+            startActivity(intent);
+            finish();
         }
     }
 
