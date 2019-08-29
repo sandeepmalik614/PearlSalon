@@ -4,6 +4,8 @@ import android.os.Bundle;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
+
+import android.os.Handler;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -11,7 +13,9 @@ import com.pearl.salon.R;
 import com.pearl.salon.utils.AppUtils;
 
 public class MainActivity extends AppCompatActivity {
+
     private TextView mTextMessage;
+    private boolean doublePressedExit = false;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -43,4 +47,19 @@ public class MainActivity extends AppCompatActivity {
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    @Override
+    public void onBackPressed() {
+        if(doublePressedExit){
+            super.onBackPressed();
+        }else{
+            AppUtils.showBottomToast(this, "Please click BACK again to exit");
+            doublePressedExit = true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    doublePressedExit = false;
+                }
+            }, 2000);
+        }
+    }
 }
