@@ -5,8 +5,8 @@
     <string name="title_notifications">Notifications</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="forgot_placeholder">Please enter your email address. you will receive a code to create a new password via email.</string>
     <string name="social_placeholder">Book an appointment for\nSalon, Spa &amp; Barber.</string>
+    <string name="forgot_placeholder">Please enter your email address. you will receive a code to create a new password via email.</string>
     <string name="reset_password">Please create a new password. Your new password or confirm password should be same.</string>
     <string name="signup_condition">By continuing <b>Sign up</b> you agree to the following <b>Terms &amp; Conditions</b> without reservation.</string>
     <string name="already_have_an_account">Already have an account? <font color='#fe9353'>Sign in</font></string>
