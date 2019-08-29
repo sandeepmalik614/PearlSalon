@@ -18,4 +18,9 @@
 
     <string name="forgot_password_popup_text1">Code has been sent to reset a new password.</string>
     <string name="forgot_password_popup_text2">You will shortly receive an EMAIL with a code to setup a new password.</string>
+
+    <string name="intro_one_heading">Find and book services</string>
+    <string name="intro_one">Find and book Barber, Beauty, Salon &amp; Spa service anywhere, anytime.</string>
+    <string name="intro_two_heading">Style that fit your lifestyle</string>
+    <string name="intro_two">Choose our Makeup spacial our price package that fit your lifestyle</string>
 </resources>
