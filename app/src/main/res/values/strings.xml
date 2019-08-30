@@ -26,4 +26,20 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+    <string name="test">Attribute layout_collapseMode controls how child views of collapsing toolbar layout move when layout is moving. If layout_collapseMode of a view is set to parallax, it moves in parallax fashion. When layout_collapseMode attribute is set to pin, view is placed in a fixed position. Below screens show toolbar when layout_collapseMode is set to pin and without the layout_collapseMode setting.Attribute layout_collapseMode controls how child views of collapsing toolbar layout move when layout is moving. If layout_collapseMode of a view is set to parallax, it moves in parallax fashion. When layout_collapseMode attribute is set to pin, view is placed in a fixed position. Below screens show toolbar when layout_collapseMode is set to pin and without the layout_collapseMode setting.Attribute layout_collapseMode controls how child views of collapsing toolbar layout move when layout is moving. If layout_collapseMode of a view is set to parallax, it moves in parallax fashion. When layout_collapseMode attribute is set to pin, view is placed in a fixed position. Below screens show toolbar when layout_collapseMode is set to pin and without the layout_collapseMode setting.</string>
 </resources>

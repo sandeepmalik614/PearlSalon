@@ -51,7 +51,7 @@ public class SimpleLoginActivity extends AppCompatActivity {
                 setUserName(this, "Sandeep Malik");
                 setUserEmail(this, "sandeep.malik@hkdigitalonline.com");
                 setUserGender(this, "Male");
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, HomeActivity.class);
                 clearAllIntent(intent);
                 startActivity(intent);
                 finish();

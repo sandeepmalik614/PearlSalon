@@ -27,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
                     if (AppPrefference.isUserLoggedOut(SplashActivity.this)) {
                         intent = new Intent(SplashActivity.this, SocialLoginActivity.class);
                     } else {
-                        intent = new Intent(SplashActivity.this, MainActivity.class);
+                        intent = new Intent(SplashActivity.this, HomeActivity.class);
                     }
                 } else {
                     intent = new Intent(SplashActivity.this, IntroActivity.class);

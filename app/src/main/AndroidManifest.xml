@@ -4,6 +4,7 @@
     package="com.pearl.salon">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,14 +13,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.RegisterMobileVerifyActvity"
+        <activity
+            android:name=".activity.HomeActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".activity.ResetPasswordActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.OtpVerificationActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.ForgotPasswordActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.RegisterMobileVerifyActvity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ResetPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.OtpVerificationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ForgotPasswordActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.RegisterActivity"
             android:screenOrientation="portrait" />
@@ -42,9 +50,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.MainActivity"
-            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

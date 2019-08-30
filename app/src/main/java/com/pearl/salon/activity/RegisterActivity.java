@@ -88,7 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
                 } else if (rb_female.isChecked()) {
                     setUserGender(this, "Female");
                 }
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, HomeActivity.class);
                 clearAllIntent(intent);
                 startActivity(intent);
                 finish();
