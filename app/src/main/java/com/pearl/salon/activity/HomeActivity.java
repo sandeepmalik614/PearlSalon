@@ -38,6 +38,7 @@ public class HomeActivity extends AppCompatActivity
 
     private boolean doublePressedExit = false;
     private BottomNavigationView bottomNavView;
+    private DrawerLayout drawer;
     final Fragment fragment1 = new HomeFragment();
     final Fragment fragment2 = new NearbyFragment();
     final Fragment fragment3 = new InboxFragment();
@@ -79,7 +80,7 @@ public class HomeActivity extends AppCompatActivity
         AppUtils.setBarTransparent(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -88,7 +89,6 @@ public class HomeActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         bottomNavView = findViewById(R.id.bottom_nav_view);
         bottomNavView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
         switchFragment(fragment1);
     }
 
@@ -129,7 +129,6 @@ public class HomeActivity extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
