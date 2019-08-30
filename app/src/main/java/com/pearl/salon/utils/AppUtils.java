@@ -6,6 +6,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -23,6 +25,13 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class AppUtils {
+
+    public static boolean isConnectionAvailable(Context ctx) {
+        ConnectivityManager mManager = (ConnectivityManager) ctx
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo mNetworkInfo = mManager.getActiveNetworkInfo();
+        return (mNetworkInfo != null) && (mNetworkInfo.isConnected());
+    }
 
     public static void setBarTransparent(Activity activity){
          activity.getWindow().getDecorView().setSystemUiVisibility(

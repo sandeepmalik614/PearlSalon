@@ -20,6 +20,7 @@ import static com.pearl.salon.utils.AppPrefference.setUserGender;
 import static com.pearl.salon.utils.AppPrefference.setUserLoggedOut;
 import static com.pearl.salon.utils.AppPrefference.setUserName;
 import static com.pearl.salon.utils.AppUtils.clearAllIntent;
+import static com.pearl.salon.utils.AppUtils.isConnectionAvailable;
 import static com.pearl.salon.utils.AppUtils.isValidEmail;
 import static com.pearl.salon.utils.AppUtils.showBottomToast;
 
@@ -62,34 +63,38 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void verifyUserDetails(View view) {
-        if(edt_name.getText().toString().isEmpty()){
-            showBottomToast(this, "Enter username");
-            edt_name.requestFocus();
-        }else if(edt_email.getText().toString().isEmpty() || !isValidEmail(edt_email.getText().toString())){
-            showBottomToast(this, "Enter valid email-id");
-            edt_email.requestFocus();
-        }else if(edt_dob.getText().toString().isEmpty()){
-            showBottomToast(this,"Select your DOB");
-        }else if(!rb_female.isChecked() && !rb_male.isChecked()){
-            showBottomToast(this,"Select your Gender");
-        }else if(edt_pass.getText().toString().isEmpty()){
-            showBottomToast(this, "Enter your password");
-        }else if(!edt_pass.getText().toString().equals(edt_conPass.getText().toString())){
-            showBottomToast(this, "Password and Confirm Password should be same");
-        }else {
-            showBottomToast(this, "You have registered successfully");
-            setUserLoggedOut(this, false);
-            setUserName(this, edt_name.getText().toString());
-            setUserEmail(this, edt_email.getText().toString());
-            if(rb_male.isChecked()){
-                setUserGender(this,"Male");
-            }else if(rb_female.isChecked()){
-                setUserGender(this,"Female");
+        if(isConnectionAvailable(this)) {
+            if (edt_name.getText().toString().isEmpty()) {
+                showBottomToast(this, "Enter username");
+                edt_name.requestFocus();
+            } else if (edt_email.getText().toString().isEmpty() || !isValidEmail(edt_email.getText().toString())) {
+                showBottomToast(this, "Enter valid email-id");
+                edt_email.requestFocus();
+            } else if (edt_dob.getText().toString().isEmpty()) {
+                showBottomToast(this, "Select your DOB");
+            } else if (!rb_female.isChecked() && !rb_male.isChecked()) {
+                showBottomToast(this, "Select your Gender");
+            } else if (edt_pass.getText().toString().isEmpty()) {
+                showBottomToast(this, "Enter your password");
+            } else if (!edt_pass.getText().toString().equals(edt_conPass.getText().toString())) {
+                showBottomToast(this, "Password and Confirm Password should be same");
+            } else {
+                showBottomToast(this, "You have registered successfully");
+                setUserLoggedOut(this, false);
+                setUserName(this, edt_name.getText().toString());
+                setUserEmail(this, edt_email.getText().toString());
+                if (rb_male.isChecked()) {
+                    setUserGender(this, "Male");
+                } else if (rb_female.isChecked()) {
+                    setUserGender(this, "Female");
+                }
+                Intent intent = new Intent(this, MainActivity.class);
+                clearAllIntent(intent);
+                startActivity(intent);
+                finish();
             }
-            Intent intent = new Intent(this, MainActivity.class);
-            clearAllIntent(intent);
-            startActivity(intent);
-            finish();
+        }else{
+            AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
         }
     }
 
@@ -109,5 +114,13 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }, 1990, 01, 01);
         da1.show();
+    }
+
+    @Override
+    protected void onResume() {
+        if(!AppUtils.isConnectionAvailable(this)){
+            AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
+        }
+        super.onResume();
     }
 }

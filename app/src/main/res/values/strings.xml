@@ -23,4 +23,7 @@
     <string name="intro_one">Find and book Barber, Beauty, Salon &amp; Spa service anywhere, anytime.</string>
     <string name="intro_two_heading">Style that fit your lifestyle</string>
     <string name="intro_two">Choose our Makeup spacial our price package that fit your lifestyle</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -37,4 +37,12 @@ public class SplashActivity extends AppCompatActivity {
             }
         }, 1500);
     }
+
+    @Override
+    protected void onResume() {
+        if(!AppUtils.isConnectionAvailable(this)){
+            AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
+        }
+        super.onResume();
+    }
 }

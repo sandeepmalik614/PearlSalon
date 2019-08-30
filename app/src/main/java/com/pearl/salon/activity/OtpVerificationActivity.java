@@ -18,10 +18,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pearl.salon.R;
+import com.pearl.salon.utils.AppUtils;
 
 import java.time.Duration;
 import java.util.ArrayList;
 
+import static com.pearl.salon.utils.AppUtils.isConnectionAvailable;
 import static com.pearl.salon.utils.AppUtils.openNumberKeyboard;
 import static com.pearl.salon.utils.AppUtils.setBarTransparent;
 import static com.pearl.salon.utils.AppUtils.showTopToast;
@@ -75,18 +77,22 @@ public class OtpVerificationActivity extends AppCompatActivity {
     }
 
     public void verifyOtp(View view) {
-        if (edt_otp_one.getText().toString().isEmpty() || edt_otp_two.getText().toString().isEmpty() ||
-                edt_otp_three.getText().toString().isEmpty() || edt_otp_four.getText().toString().isEmpty()) {
-            showTopToast(this, "Please enter valid OTP");
-        } else {
-            Intent intent = null;
-            if(fromScreen.equalsIgnoreCase("MobileVerify")){
-                intent = new Intent(this, RegisterActivity.class);
-            }else{
-                intent = new Intent(this, ResetPasswordActivity.class);
+        if(isConnectionAvailable(this)) {
+            if (edt_otp_one.getText().toString().isEmpty() || edt_otp_two.getText().toString().isEmpty() ||
+                    edt_otp_three.getText().toString().isEmpty() || edt_otp_four.getText().toString().isEmpty()) {
+                showTopToast(this, "Please enter valid OTP");
+            } else {
+                Intent intent = null;
+                if (fromScreen.equalsIgnoreCase("MobileVerify")) {
+                    intent = new Intent(this, RegisterActivity.class);
+                } else {
+                    intent = new Intent(this, ResetPasswordActivity.class);
+                }
+                startActivity(intent);
+                finish();
             }
-            startActivity(intent);
-            finish();
+        }else{
+            AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
         }
     }
 
@@ -180,5 +186,13 @@ public class OtpVerificationActivity extends AppCompatActivity {
     protected void onDestroy() {
         stopTimer();
         super.onDestroy();
+    }
+
+    @Override
+    protected void onResume() {
+        if(!AppUtils.isConnectionAvailable(this)){
+            AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
+        }
+        super.onResume();
     }
 }

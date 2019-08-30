@@ -42,4 +42,28 @@ public class SocialLoginActivity extends AppCompatActivity {
             }, 2000);
         }
     }
+
+    @Override
+    protected void onResume() {
+        if(!AppUtils.isConnectionAvailable(this)){
+            AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
+        }
+        super.onResume();
+    }
+
+    public void googleLogin(View view) {
+        if(AppUtils.isConnectionAvailable(this)){
+
+        }else{
+            AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
+        }
+    }
+
+    public void facebookLogin(View view) {
+        if(AppUtils.isConnectionAvailable(this)){
+
+        }else{
+            AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
+        }
+    }
 }

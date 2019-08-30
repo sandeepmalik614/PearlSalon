@@ -40,7 +40,7 @@
             android:layout_marginBottom="128dp"
             android:text="@string/intro_one"
             android:gravity="center"
-            android:textSize="18sp"/>
+            android:textSize="18dp"/>
 
     </LinearLayout>
 

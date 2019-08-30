@@ -15,8 +15,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.pearl.salon.R;
+import com.pearl.salon.utils.AppUtils;
 
 import static com.pearl.salon.utils.AppUtils.hideKeyboard;
+import static com.pearl.salon.utils.AppUtils.isConnectionAvailable;
 import static com.pearl.salon.utils.AppUtils.isValidEmail;
 import static com.pearl.salon.utils.AppUtils.openCodeSentDialog;
 import static com.pearl.salon.utils.AppUtils.setBarTransparent;
@@ -48,13 +50,25 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     }
 
     public void sendForgotOtp(View view) {
-        if (edt_email.getText().toString().isEmpty()) {
-            Toast.makeText(this, "Enter your email id", Toast.LENGTH_SHORT).show();
-        } else if (!isValidEmail(edt_email.getText().toString())) {
-            Toast.makeText(this, "Enter a valid email id", Toast.LENGTH_SHORT).show();
-        } else {
-            hideKeyboard(this);
-            openCodeSentDialog(this, "ForgotPassword");
+        if (isConnectionAvailable(this)) {
+            if (edt_email.getText().toString().isEmpty()) {
+                Toast.makeText(this, "Enter your email id", Toast.LENGTH_SHORT).show();
+            } else if (!isValidEmail(edt_email.getText().toString())) {
+                Toast.makeText(this, "Enter a valid email id", Toast.LENGTH_SHORT).show();
+            } else {
+                hideKeyboard(this);
+                openCodeSentDialog(this, "ForgotPassword");
+            }
+        }else{
+            AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
         }
+    }
+
+    @Override
+    protected void onResume() {
+        if (!AppUtils.isConnectionAvailable(this)) {
+            AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
+        }
+        super.onResume();
     }
 }

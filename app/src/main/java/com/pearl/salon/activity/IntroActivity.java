@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.tabs.TabLayout;
 import com.pearl.salon.R;
 import com.pearl.salon.utils.AppPrefference;
 import com.pearl.salon.utils.AppUtils;
@@ -23,6 +24,7 @@ public class IntroActivity extends AppCompatActivity {
     private Button btn_next;
     private MyViewPagerAdapter myViewPagerAdapter;
     private int[] layouts;
+    private TabLayout intro_tab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class IntroActivity extends AppCompatActivity {
         AppUtils.setBarTransparent(this);
 
         viewPager = findViewById(R.id.viewPager);
+        intro_tab = findViewById(R.id.intro_tab);
         btn_next = findViewById(R.id.button);
         layouts = new int[]{
                 R.layout.intro_one,
@@ -39,6 +42,7 @@ public class IntroActivity extends AppCompatActivity {
         myViewPagerAdapter = new MyViewPagerAdapter();
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
+        intro_tab.setupWithViewPager(viewPager, false);
 
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,5 +119,13 @@ public class IntroActivity extends AppCompatActivity {
             View view = (View) object;
             container.removeView(view);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        if(!AppUtils.isConnectionAvailable(this)){
+            AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
+        }
+        super.onResume();
     }
 }

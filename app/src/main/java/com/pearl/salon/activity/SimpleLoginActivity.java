@@ -16,6 +16,7 @@ import static com.pearl.salon.utils.AppPrefference.setUserGender;
 import static com.pearl.salon.utils.AppPrefference.setUserLoggedOut;
 import static com.pearl.salon.utils.AppPrefference.setUserName;
 import static com.pearl.salon.utils.AppUtils.clearAllIntent;
+import static com.pearl.salon.utils.AppUtils.isConnectionAvailable;
 
 public class SimpleLoginActivity extends AppCompatActivity {
 
@@ -40,19 +41,31 @@ public class SimpleLoginActivity extends AppCompatActivity {
     }
 
     public void signInUser(View view) {
-        if (username.getText().toString().isEmpty()) {
-            AppUtils.showBottomToast(this, "Enter your Mobile/Email");
-        } else if (password.getText().toString().isEmpty()) {
-            AppUtils.showBottomToast(this, "Enter password");
-        } else {
-            setUserLoggedOut(this, false);
-            setUserName(this, "Sandeep Malik");
-            setUserEmail(this, "sandeep.malik@hkdigitalonline.com");
-            setUserGender(this, "Male");
-            Intent intent = new Intent(this, MainActivity.class);
-            clearAllIntent(intent);
-            startActivity(intent);
-            finish();
+        if(isConnectionAvailable(this)) {
+            if (username.getText().toString().isEmpty()) {
+                AppUtils.showBottomToast(this, "Enter your Mobile/Email");
+            } else if (password.getText().toString().isEmpty()) {
+                AppUtils.showBottomToast(this, "Enter password");
+            } else {
+                setUserLoggedOut(this, false);
+                setUserName(this, "Sandeep Malik");
+                setUserEmail(this, "sandeep.malik@hkdigitalonline.com");
+                setUserGender(this, "Male");
+                Intent intent = new Intent(this, MainActivity.class);
+                clearAllIntent(intent);
+                startActivity(intent);
+                finish();
+            }
+        }else{
+            AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
         }
+    }
+
+    @Override
+    protected void onResume() {
+        if(!AppUtils.isConnectionAvailable(this)){
+            AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
+        }
+        super.onResume();
     }
 }
