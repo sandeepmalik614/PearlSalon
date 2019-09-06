@@ -21,7 +21,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset_password);
-        AppUtils.setBarTransparent(this);
+//        AppUtils.setBarTransparent(this);
 
         edt_new_pass = findViewById(R.id.edt_reset_new_password);
         edt_con_pass = findViewById(R.id.edt_reset_con_password);

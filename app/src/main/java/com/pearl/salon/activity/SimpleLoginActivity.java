@@ -26,7 +26,7 @@ public class SimpleLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_login);
-        AppUtils.setBarTransparent(this);
+//        AppUtils.setBarTransparent(this);
 
         username = findViewById(R.id.editText2);
         password = findViewById(R.id.editText3);

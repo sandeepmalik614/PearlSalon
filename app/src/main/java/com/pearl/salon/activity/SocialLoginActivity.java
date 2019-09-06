@@ -19,7 +19,7 @@ public class SocialLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_login);
-        AppUtils.setBarTransparent(this);
+//        AppUtils.setBarTransparent(this);
 
     }
 

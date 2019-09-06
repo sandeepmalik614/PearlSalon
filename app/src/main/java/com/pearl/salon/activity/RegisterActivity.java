@@ -33,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        AppUtils.setBarTransparent(this);
+//        AppUtils.setBarTransparent(this);
 
         edt_name = findViewById(R.id.editText4);
         edt_email = findViewById(R.id.editText5);

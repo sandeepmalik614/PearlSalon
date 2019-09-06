@@ -38,7 +38,7 @@ public class OtpVerificationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setBarTransparent(this);
+//        setBarTransparent(this);
         setContentView(R.layout.activity_otp_verification);
         edt_otp_one = findViewById(R.id.edt_otp_one);
         edt_otp_two = findViewById(R.id.edt_otp_two);

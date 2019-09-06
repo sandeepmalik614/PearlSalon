@@ -32,7 +32,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
-        setBarTransparent(this);
+//        setBarTransparent(this);
         showKeyboard(this);
         edt_email = findViewById(R.id.editText);
         edt_email.requestFocus();
