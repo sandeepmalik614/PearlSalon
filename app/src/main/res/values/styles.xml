@@ -6,9 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:autofilledHighlight" tools:ignore="NewApi">@android:color/transparent
-        </item>
-
+        <item name="android:autofilledHighlight" tools:ignore="NewApi">@android:color/transparent</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
     </style>
 
@@ -36,9 +34,7 @@
     <style name="NavigationDrawerStyle">
         <item name="android:textSize">16sp</item><!-- text size in menu-->
         <item name="android:textStyle">normal</item>
-        <item name="android:listPreferredItemHeightSmall">
-            @dimen/abc_action_bar_default_height_material
-        </item><!-- item size in menu-->
+        <item name="android:listPreferredItemHeightSmall">@dimen/abc_action_bar_default_height_material</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
