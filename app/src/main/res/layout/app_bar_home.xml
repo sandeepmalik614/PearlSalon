@@ -19,7 +19,7 @@
             android:background="@drawable/toolbar_gradient"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
-            app:layout_scrollFlags="exitUntilCollapsed|scroll">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <EditText
                 android:layout_width="match_parent"
@@ -47,7 +47,7 @@
                 android:background="@android:color/transparent"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:title=" ">
+                app:title="">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -56,6 +56,7 @@
                     <ImageView
                         android:layout_width="26dp"
                         android:layout_height="26dp"
+                        android:padding="4dp"
                         android:layout_alignParentEnd="true"
                         android:background="@drawable/ic_filter_white" />
                 </RelativeLayout>

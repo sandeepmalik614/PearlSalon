@@ -109,10 +109,10 @@ public class HomeActivity extends AppCompatActivity
 
                 if (Math.abs(verticalOffset) == appBarLayout.getTotalScrollRange()) {
                     // Collapsed
-
+                    Toast.makeText(HomeActivity.this, "Collapsed", Toast.LENGTH_SHORT).show();
                 } else if (verticalOffset == 0) {
                     // Expanded
-
+                    Toast.makeText(HomeActivity.this, "Expanded", Toast.LENGTH_SHORT).show();
                 } else {
 
                     // Somewhere in between
