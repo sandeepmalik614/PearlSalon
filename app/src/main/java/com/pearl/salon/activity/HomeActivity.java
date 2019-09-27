@@ -33,8 +33,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity
@@ -51,9 +53,6 @@ public class HomeActivity extends AppCompatActivity
     final Fragment fragment4 = new AppointmentFragment();
     final Fragment fragment5 = new ProfileFragment();
     private FragmentTransaction fragmentTransaction;
-
-    private CollapsingToolbarLayout collapsingToolbarLayout;
-    private AppBarLayout appBarLayout;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -89,8 +88,6 @@ public class HomeActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
-        collapsingToolbarLayout = findViewById(R.id.collapsingToolbar);
-        appBarLayout = findViewById(R.id.appBarLayout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -100,26 +97,6 @@ public class HomeActivity extends AppCompatActivity
         bottomNavView = findViewById(R.id.bottom_nav_view);
         bottomNavView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         switchFragment(fragment1);
-
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.BaseOnOffsetChangedListener() {
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-
-                Log.d(TAG, "onOffsetChanged: "+verticalOffset);
-
-                if (Math.abs(verticalOffset) == appBarLayout.getTotalScrollRange()) {
-                    // Collapsed
-                    Toast.makeText(HomeActivity.this, "Collapsed", Toast.LENGTH_SHORT).show();
-                } else if (verticalOffset == 0) {
-                    // Expanded
-                    Toast.makeText(HomeActivity.this, "Expanded", Toast.LENGTH_SHORT).show();
-                } else {
-
-                    // Somewhere in between
-                }
-            }
-        });
-
     }
 
 

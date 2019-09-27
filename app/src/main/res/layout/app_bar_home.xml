@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.HomeActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <!--<com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -66,20 +67,94 @@
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-    </com.google.android.material.appbar.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>-->
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
 
-        <include
-            android:id="@+id/include"
-            layout="@layout/content_home"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </androidx.core.widget.NestedScrollView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toLeftOf="@id/img_filter"
+                android:text="Find and book best services"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:textStyle="italic|bold" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <ImageView
+                android:id="@+id/img_filter"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/ic_filter_white" />
+
+        </RelativeLayout>
+
+        <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_toLeftOf="@id/img_filter">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Pearl Salon"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:textSize="16dp"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:layout_margin="8dp"-->
+        <!--android:textStyle="italic|bold" />-->
+
+        <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/toolbar_edit"-->
+        <!--android:drawableLeft="@drawable/ic_search_24dp"-->
+        <!--android:drawablePadding="16dp"-->
+        <!--android:elevation="6dp"-->
+        <!--android:singleLine="true"-->
+        <!--android:hint="Search Salon, spa and barber"-->
+        <!--android:paddingLeft="24dp"-->
+        <!--android:paddingTop="10dp"-->
+        <!--android:paddingRight="24dp"-->
+        <!--android:paddingBottom="10dp"-->
+        <!--android:textSize="12sp"-->
+        <!--android:layout_margin="6dp"/>-->
+
+        <!--</LinearLayout>-->
+
+        <!--<ImageView-->
+        <!--android:id="@+id/img_filter"-->
+        <!--android:layout_width="26dp"-->
+        <!--android:layout_height="26dp"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:padding="4dp"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_marginRight="16dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:src="@drawable/ic_filter_white" />-->
+        <!--</RelativeLayout>-->
+    </androidx.appcompat.widget.Toolbar>
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

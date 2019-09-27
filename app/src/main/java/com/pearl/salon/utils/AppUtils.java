@@ -5,7 +5,9 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.GradientDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.view.Gravity;
@@ -23,6 +25,7 @@ import com.pearl.salon.activity.OtpVerificationActivity;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 public class AppUtils {
 
@@ -117,5 +120,19 @@ public class AppUtils {
         });
 
         dialog.show();
+    }
+
+    public static String generateDarkRenadomNumber() {
+        Random r = new Random();
+        int red = r.nextInt(150 - 0 + 1) + 1;
+        int green = r.nextInt(150 - 0 + 1) + 1;
+        int blue = r.nextInt(150 - 0 + 1) + 1;
+
+        GradientDrawable draw = new GradientDrawable();
+        draw.setShape(GradientDrawable.OVAL);
+        draw.setColor(Color.rgb(red, green, blue));
+        String color = String.format("#%02x%02x%02x", red, green, blue);
+        color = color.replace("android.graphics.drawable.GradientDrawable@", "");
+        return color;
     }
 }
