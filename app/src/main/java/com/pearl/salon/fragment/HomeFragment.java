@@ -51,8 +51,9 @@ public class HomeFragment extends Fragment {
 
         tv_bestDalonSeeAll = mainView.findViewById(R.id.tv_bestDalonSeeAll);
 
+        setViewStub();
+
         for (int i = 0; i < 3; i++) {
-            setViewStub();
         }
 
         setTopCategoryAdapter();
@@ -61,8 +62,10 @@ public class HomeFragment extends Fragment {
     }
 
     private void setViewStub(){
-        ViewStub viewStub = mainView.findViewById(R.id.mainViewStub);;
-        View inflated = viewStub.inflate();
+        ViewStub viewStub = null;
+        viewStub = mainView.findViewById(R.id.mainViewStub);
+        View inflated = null;
+        inflated = viewStub.inflate();
         RecyclerView rv_home_bestSalon = inflated.findViewById(R.id.rv_home_Salon);
         rv_home_bestSalon.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
         secondcolorList = new ArrayList<>();
