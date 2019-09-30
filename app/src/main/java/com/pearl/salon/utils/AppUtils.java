@@ -135,4 +135,18 @@ public class AppUtils {
         color = color.replace("android.graphics.drawable.GradientDrawable@", "");
         return color;
     }
+
+    public static String generateLightRenadomNumber() {
+        Random r = new Random();
+        int red = r.nextInt(255 - 0 + 1) + 1;
+        int green = r.nextInt(150 - 25 + 1) + 1;
+        int blue = r.nextInt(150 - 100 + 1) + 1;
+
+        GradientDrawable draw = new GradientDrawable();
+        draw.setShape(GradientDrawable.OVAL);
+        draw.setColor(Color.rgb(red, green, blue));
+        String color = String.format("#%02x%02x%02x", red, green, blue);
+        color = color.replace("android.graphics.drawable.GradientDrawable@", "");
+        return color;
+    }
 }

@@ -6,6 +6,7 @@ import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,20 +14,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pearl.salon.R;
+import com.pearl.salon.clickListner.HomeClickListner;
 import com.pearl.salon.model.BestSalonData;
 
 import java.util.ArrayList;
 
-public class HomeBestSalonAdapter extends RecyclerView.Adapter<HomeBestSalonAdapter.ViewHolder> {
+public class HomeTypeChildAdapter extends RecyclerView.Adapter<HomeTypeChildAdapter.ViewHolder> {
 
     private Context context;
     private ArrayList<String> colorList;
     private ArrayList<BestSalonData> salonData;
+    private HomeClickListner homeClickListner;
 
-    public HomeBestSalonAdapter(Context context, ArrayList<String> colorList, ArrayList<BestSalonData> salonData) {
+    public HomeTypeChildAdapter(Context context, ArrayList<String> colorList, ArrayList<BestSalonData> salonData, HomeClickListner homeClickListner) {
         this.context = context;
         this.colorList = colorList;
         this.salonData = salonData;
+        this.homeClickListner = homeClickListner;
     }
 
     @NonNull
@@ -37,21 +41,31 @@ public class HomeBestSalonAdapter extends RecyclerView.Adapter<HomeBestSalonAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.salonImage.setBackgroundColor(Color.parseColor(colorList.get(position)));
         holder.title.setText(salonData.get(position).getTitle());
-        holder.star.setText(salonData.get(position).getRating());
         holder.add.setText(salonData.get(position).getAddress());
+        holder.star.setText(salonData.get(position).getRating());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                homeClickListner.childClick(salonData.get(position).getTitle());
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return colorList.size();
+        return salonData.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+
         private ImageView salonImage;
         private TextView title, star, add;
+        private Button book;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -59,6 +73,7 @@ public class HomeBestSalonAdapter extends RecyclerView.Adapter<HomeBestSalonAdap
             title = itemView.findViewById(R.id.textView23);
             star = itemView.findViewById(R.id.textView22);
             add = itemView.findViewById(R.id.textView24);
+            book = itemView.findViewById(R.id.button9);
         }
     }
 }

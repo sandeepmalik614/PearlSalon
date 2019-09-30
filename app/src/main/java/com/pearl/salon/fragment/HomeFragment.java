@@ -1,8 +1,6 @@
 package com.pearl.salon.fragment;
 
 
-import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,19 +10,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewStub;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pearl.salon.R;
-import com.pearl.salon.adapter.HomeBestSalonAdapter;
+import com.pearl.salon.adapter.HomeTypesAdapter;
 import com.pearl.salon.adapter.MainTopCategoriesAdapter;
+import com.pearl.salon.clickListner.HomeClickListner;
+import com.pearl.salon.clickListner.TopCategoriesClickListner;
 import com.pearl.salon.model.BestSalonData;
 import com.pearl.salon.utils.AppUtils;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import static com.pearl.salon.utils.AppUtils.generateDarkRenadomNumber;
+import static com.pearl.salon.utils.AppUtils.generateLightRenadomNumber;
 
 
 /**
@@ -32,12 +33,33 @@ import static com.pearl.salon.utils.AppUtils.generateDarkRenadomNumber;
  */
 public class HomeFragment extends Fragment {
 
-    private RecyclerView rv_home_topCategories;
+    private RecyclerView rv_home_topCategories, rv_home_types;
     private TextView tv_topCatogiresSeeAll, tv_bestDalonSeeAll;
     private View mainView;
-    private ArrayList<String> colorList;
-    private ArrayList<String> secondcolorList;
+    private ArrayList<String> darkColorList;
+    private ArrayList<String> lightColorList;
+    private ArrayList<String> headingList;
     private ArrayList<BestSalonData> salonData;
+    private EditText edt_mainSearch;
+
+    private HomeClickListner homeClickListner = new HomeClickListner() {
+        @Override
+        public void mainClick(String heading) {
+            Toast.makeText(getActivity(), ""+heading, Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void childClick(String salonName) {
+            Toast.makeText(getActivity(), ""+salonName, Toast.LENGTH_SHORT).show();
+        }
+    };
+
+    private TopCategoriesClickListner topCategoriesClickListner = new TopCategoriesClickListner() {
+        @Override
+        public void onClick(String categoryName) {
+            Toast.makeText(getActivity(), ""+categoryName, Toast.LENGTH_SHORT).show();
+        }
+    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,33 +70,46 @@ public class HomeFragment extends Fragment {
 
         rv_home_topCategories = mainView.findViewById(R.id.rv_home_topCategories);
         tv_topCatogiresSeeAll = mainView.findViewById(R.id.tv_topCatogiresSeeAll);
-
-        tv_bestDalonSeeAll = mainView.findViewById(R.id.tv_bestDalonSeeAll);
-
-        setViewStub();
-
-        for (int i = 0; i < 3; i++) {
-        }
+        edt_mainSearch = mainView.findViewById(R.id.edt_mainSearch);
+        rv_home_types = mainView.findViewById(R.id.rv_home_types);
 
         setTopCategoryAdapter();
+        setSalonData();
+
+        setView();
+
+        edt_mainSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Serach", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return mainView;
     }
 
-    private void setViewStub(){
-        ViewStub viewStub = null;
-        viewStub = mainView.findViewById(R.id.mainViewStub);
-        View inflated = null;
-        inflated = viewStub.inflate();
-        RecyclerView rv_home_bestSalon = inflated.findViewById(R.id.rv_home_Salon);
-        rv_home_bestSalon.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
-        secondcolorList = new ArrayList<>();
-        setSalonData();
-        for (int i = 0; i < 10; i++) {
-            secondcolorList.add(generateDarkRenadomNumber());
-            if (i == 9) {
-                rv_home_bestSalon.setAdapter(new HomeBestSalonAdapter(getActivity(), secondcolorList, salonData));
-                break;
+    private void setView(){
+        rv_home_types.setLayoutManager(new LinearLayoutManager(getActivity()));
+        headingList = new ArrayList<>();
+        lightColorList = new ArrayList<>();
+        rv_home_types.setAdapter(new HomeTypesAdapter(getActivity(), lightColorList, salonData, headingList, homeClickListner));
+        for (int i = 0; i < 4; i++) {
+            lightColorList.clear();
+            for (int j = 0; j < salonData.size(); j++) {
+                lightColorList.add(generateLightRenadomNumber());
+            }
+            if(i == 0){
+                headingList.add("Best Salon");
+                rv_home_types.getAdapter().notifyDataSetChanged();
+            }else if(i == 1){
+                headingList.add("Trending Salon");
+                rv_home_types.getAdapter().notifyDataSetChanged();
+            }else if(i == 2){
+                headingList.add("Latest Salon");
+                rv_home_types.getAdapter().notifyDataSetChanged();
+            }else if(i == 3) {
+                headingList.add("Faltu Salon");
+                rv_home_types.getAdapter().notifyDataSetChanged();
             }
         }
     }
@@ -82,11 +117,11 @@ public class HomeFragment extends Fragment {
 
     private void setTopCategoryAdapter() {
         rv_home_topCategories.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
-        colorList = new ArrayList<>();
+        darkColorList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            colorList.add(generateDarkRenadomNumber());
+            darkColorList.add(generateDarkRenadomNumber());
             if (i == 9) {
-                rv_home_topCategories.setAdapter(new MainTopCategoriesAdapter(getActivity(), colorList));
+                rv_home_topCategories.setAdapter(new MainTopCategoriesAdapter(getActivity(), darkColorList, topCategoriesClickListner));
                 break;
             }
         }
