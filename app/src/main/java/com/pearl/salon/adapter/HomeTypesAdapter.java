@@ -48,6 +48,12 @@ public class HomeTypesAdapter extends RecyclerView.Adapter<HomeTypesAdapter.View
         holder.rv_home_Salon.setLayoutManager(new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false));
         holder.rv_home_Salon.setAdapter(new HomeTypeChildAdapter(context, colorList, salonData, homeClickListner));
 
+        if(headingList.get(position).equalsIgnoreCase("Hot Deals")){
+            holder.tv_bestDalonSeeAll.setVisibility(View.GONE);
+        }else{
+            holder.tv_bestDalonSeeAll.setVisibility(View.VISIBLE);
+        }
+
         holder.tv_bestDalonSeeAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -105,10 +105,10 @@ public class HomeFragment extends Fragment {
                 headingList.add("Trending Salon");
                 rv_home_types.getAdapter().notifyDataSetChanged();
             }else if(i == 2){
-                headingList.add("Latest Salon");
+                headingList.add("Hot Deals");
                 rv_home_types.getAdapter().notifyDataSetChanged();
             }else if(i == 3) {
-                headingList.add("Faltu Salon");
+                headingList.add("Latest Salon");
                 rv_home_types.getAdapter().notifyDataSetChanged();
             }
         }
@@ -130,16 +130,16 @@ public class HomeFragment extends Fragment {
     private void setSalonData(){
         salonData = new ArrayList<>();
 
-        BestSalonData data0 = new BestSalonData("Beauty Box Luxurious Salon", "1.2","C-1/15, Rohini Sector 15, Delhi - 110089, Opposite Sunrise Hospital");
-        BestSalonData data1 = new BestSalonData("Naturals Salon", "4.0","B-1, J BLOCK, 1st Floor");
-        BestSalonData data2 = new BestSalonData("Hairport Unisex Salon", "1.2","G 104, Shop Number 1, Main Road, Dwarka Sector 7, Delhi - 110075, Near Brahma Society and Opposite Gokul Garden");
-        BestSalonData data3 = new BestSalonData("Looks Salon", "1.2","Sco 122 Huda Market, Gurgaon Sector 46, Gurgaon - 122003");
-        BestSalonData data4 = new BestSalonData("Jawed Habib Hair Studio", "1.2","Shop Number C 70, Malviya Nagar, Delhi - 110017, Near Mother Diary Booth,Main Market");
-        BestSalonData data5 = new BestSalonData("Beau Shop", "1.2","A 2/115, Ground Floor, Rajouri Garden, Delhi - 110027, Behind Croma");
-        BestSalonData data6 = new BestSalonData("ki ka unisex salon", "1.2","180/C, jeevan Nagar, nr Tikona Park, Jeevan Park, Delhi - 110014 ");
-        BestSalonData data7 = new BestSalonData("Dmd Salon", "1.2","Jc 54 Ground Floor Gupta Colony, Khirki Extn, Gupta Colony, Malviya Nagar, Delhi - 110017, NiranKari Public School");
-        BestSalonData data8 = new BestSalonData("Beauty Box Luxurious Salon", "1.2","C-1/15, Rohini Sector 15, Delhi - 110089, Opposite Sunrise Hospital");
-        BestSalonData data9 = new BestSalonData("Beauty Box Luxurious Salon", "1.2","C-1/15, Rohini Sector 15, Delhi - 110089, Opposite Sunrise Hospital");
+        BestSalonData data0 = new BestSalonData("Beauty Box Luxurious Salon", "1.2","C-1/15, Rohini Sector 15, Delhi - 110089, Opposite Sunrise Hospital", false);
+        BestSalonData data1 = new BestSalonData("Naturals Salon", "4.0","B-1, J BLOCK, 1st Floor", false);
+        BestSalonData data2 = new BestSalonData("Hairport Unisex Salon", "1.2","G 104, Shop Number 1, Main Road, Dwarka Sector 7, Delhi - 110075, Near Brahma Society and Opposite Gokul Garden", false);
+        BestSalonData data3 = new BestSalonData("Looks Salon", "1.2","Sco 122 Huda Market, Gurgaon Sector 46, Gurgaon - 122003", false);
+        BestSalonData data4 = new BestSalonData("Jawed Habib Hair Studio", "1.2","Shop Number C 70, Malviya Nagar, Delhi - 110017, Near Mother Diary Booth,Main Market", false);
+        BestSalonData data5 = new BestSalonData("Beau Shop", "1.2","A 2/115, Ground Floor, Rajouri Garden, Delhi - 110027, Behind Croma", false);
+        BestSalonData data6 = new BestSalonData("ki ka unisex salon", "1.2","180/C, jeevan Nagar, nr Tikona Park, Jeevan Park, Delhi - 110014 ", false);
+        BestSalonData data7 = new BestSalonData("Dmd Salon", "1.2","Jc 54 Ground Floor Gupta Colony, Khirki Extn, Gupta Colony, Malviya Nagar, Delhi - 110017, NiranKari Public School", false);
+        BestSalonData data8 = new BestSalonData("Beauty Box Luxurious Salon", "1.2","C-1/15, Rohini Sector 15, Delhi - 110089, Opposite Sunrise Hospital", false);
+        BestSalonData data9 = new BestSalonData("Beauty Box Luxurious Salon", "1.2","C-1/15, Rohini Sector 15, Delhi - 110089, Opposite Sunrise Hospital", false);
 
         salonData.add(data0);
         salonData.add(data1);

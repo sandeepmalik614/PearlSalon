@@ -8,10 +8,21 @@ public class BestSalonData {
 
     private String address;
 
-    public BestSalonData(String title, String rating, String address) {
+    private boolean isAdd;
+
+    public BestSalonData(String title, String rating, String address, boolean isAdd) {
         this.title = title;
         this.rating = rating;
         this.address = address;
+        this.isAdd = isAdd;
+    }
+
+    public boolean isAdd() {
+        return isAdd;
+    }
+
+    public void setAdd(boolean add) {
+        isAdd = add;
     }
 
     public String getTitle() {

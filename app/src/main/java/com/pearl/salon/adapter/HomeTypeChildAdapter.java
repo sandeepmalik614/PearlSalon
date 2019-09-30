@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +26,8 @@ public class HomeTypeChildAdapter extends RecyclerView.Adapter<HomeTypeChildAdap
     private ArrayList<String> colorList;
     private ArrayList<BestSalonData> salonData;
     private HomeClickListner homeClickListner;
+    private static final int VIEW_TYPE_SALON = 0;
+    private static final int VIEW_TYPE_ADD = 1;
 
     public HomeTypeChildAdapter(Context context, ArrayList<String> colorList, ArrayList<BestSalonData> salonData, HomeClickListner homeClickListner) {
         this.context = context;
@@ -36,8 +39,13 @@ public class HomeTypeChildAdapter extends RecyclerView.Adapter<HomeTypeChildAdap
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_home_best_salon, parent, false);
-        return new ViewHolder(view);
+        if (viewType == VIEW_TYPE_SALON) {
+            View view = LayoutInflater.from(context).inflate(R.layout.item_home_best_salon, parent, false);
+            return new ViewHolder(view);
+        } else {
+            View view = LayoutInflater.from(context).inflate(R.layout.item_main_add, parent, false);
+            return new ViewHolder(view);
+        }
     }
 
     @Override
@@ -50,7 +58,11 @@ public class HomeTypeChildAdapter extends RecyclerView.Adapter<HomeTypeChildAdap
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                homeClickListner.childClick(salonData.get(position).getTitle());
+                if(salonData.get(position).isAdd()){
+                    homeClickListner.childClick("This is add");
+                }else{
+                    homeClickListner.childClick(salonData.get(position).getTitle());
+                }
             }
         });
     }
@@ -74,6 +86,15 @@ public class HomeTypeChildAdapter extends RecyclerView.Adapter<HomeTypeChildAdap
             star = itemView.findViewById(R.id.textView22);
             add = itemView.findViewById(R.id.textView24);
             book = itemView.findViewById(R.id.button9);
+        }
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (salonData.get(position).isAdd()) {
+            return VIEW_TYPE_ADD;
+        } else {
+            return VIEW_TYPE_SALON;
         }
     }
 }
