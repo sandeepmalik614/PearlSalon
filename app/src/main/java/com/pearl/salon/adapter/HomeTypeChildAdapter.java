@@ -2,21 +2,19 @@ package com.pearl.salon.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pearl.salon.R;
 import com.pearl.salon.clickListner.HomeClickListner;
-import com.pearl.salon.model.BestSalonData;
+import com.pearl.salon.model.SalonData;
 
 import java.util.ArrayList;
 
@@ -24,12 +22,12 @@ public class HomeTypeChildAdapter extends RecyclerView.Adapter<HomeTypeChildAdap
 
     private Context context;
     private ArrayList<String> colorList;
-    private ArrayList<BestSalonData> salonData;
+    private ArrayList<SalonData> salonData;
     private HomeClickListner homeClickListner;
     private static final int VIEW_TYPE_SALON = 0;
     private static final int VIEW_TYPE_ADD = 1;
 
-    public HomeTypeChildAdapter(Context context, ArrayList<String> colorList, ArrayList<BestSalonData> salonData, HomeClickListner homeClickListner) {
+    public HomeTypeChildAdapter(Context context, ArrayList<String> colorList, ArrayList<SalonData> salonData, HomeClickListner homeClickListner) {
         this.context = context;
         this.colorList = colorList;
         this.salonData = salonData;

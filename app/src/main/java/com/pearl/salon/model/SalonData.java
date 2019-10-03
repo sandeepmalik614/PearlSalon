@@ -1,6 +1,6 @@
 package com.pearl.salon.model;
 
-public class BestSalonData {
+public class SalonData {
 
     private String title;
 
@@ -10,7 +10,7 @@ public class BestSalonData {
 
     private boolean isAdd;
 
-    public BestSalonData(String title, String rating, String address, boolean isAdd) {
+    public SalonData(String title, String rating, String address, boolean isAdd) {
         this.title = title;
         this.rating = rating;
         this.address = address;

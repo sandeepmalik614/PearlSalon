@@ -1,12 +1,9 @@
 package com.pearl.salon.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,7 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.pearl.salon.R;
 import com.pearl.salon.clickListner.HomeClickListner;
-import com.pearl.salon.model.BestSalonData;
+import com.pearl.salon.model.MainList;
+import com.pearl.salon.model.SalonData;
 
 import java.util.ArrayList;
 
@@ -23,11 +21,12 @@ public class HomeTypesAdapter extends RecyclerView.Adapter<HomeTypesAdapter.View
 
     private Context context;
     private ArrayList<String> colorList;
-    private ArrayList<BestSalonData> salonData;
+    private ArrayList<MainList> salonData;
     private ArrayList<String> headingList;
     private HomeClickListner homeClickListner;
 
-    public HomeTypesAdapter(Context context, ArrayList<String> colorList, ArrayList<BestSalonData> salonData, ArrayList<String> headingList, HomeClickListner homeClickListner) {
+    public HomeTypesAdapter(Context context, ArrayList<String> colorList, ArrayList<MainList> salonData,
+                            ArrayList<String> headingList, HomeClickListner homeClickListner) {
         this.context = context;
         this.colorList = colorList;
         this.salonData = salonData;
@@ -46,7 +45,7 @@ public class HomeTypesAdapter extends RecyclerView.Adapter<HomeTypesAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.tv_bestSalonTitle.setText(headingList.get(position));
         holder.rv_home_Salon.setLayoutManager(new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false));
-        holder.rv_home_Salon.setAdapter(new HomeTypeChildAdapter(context, colorList, salonData, homeClickListner));
+        holder.rv_home_Salon.setAdapter(new HomeTypeChildAdapter(context, colorList, salonData.get(position).getSalonData(), homeClickListner));
 
         if(headingList.get(position).equalsIgnoreCase("Hot Deals")){
             holder.tv_bestDalonSeeAll.setVisibility(View.GONE);
