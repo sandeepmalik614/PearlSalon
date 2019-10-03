@@ -24,6 +24,7 @@ import com.pearl.salon.model.SalonData;
 import com.pearl.salon.utils.AppUtils;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static com.pearl.salon.utils.AppUtils.generateDarkRenadomNumber;
 import static com.pearl.salon.utils.AppUtils.generateLightRenadomNumber;
@@ -75,7 +76,6 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mainView = inflater.inflate(R.layout.fragment_home, container, false);
-        AppUtils.setBarTransparent(getActivity());
 
         rv_home_topCategories = mainView.findViewById(R.id.rv_home_topCategories);
         tv_topCatogiresSeeAll = mainView.findViewById(R.id.tv_topCatogiresSeeAll);
@@ -117,7 +117,7 @@ public class HomeFragment extends Fragment {
                 setBestSalonData();
                 bestSalon.setSalonData(bestSalonData);
                 mainLists.add(0, bestSalon);
-                rv_home_types.getAdapter().notifyDataSetChanged();
+                Objects.requireNonNull(rv_home_types.getAdapter()).notifyDataSetChanged();
             } else if (i == 1) {
                 headingList.add("Trending Salon");
                 setTrendingSalonData();
@@ -139,7 +139,6 @@ public class HomeFragment extends Fragment {
             }
         }
     }
-
 
     private void setTopCategoryAdapter() {
         rv_home_topCategories.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));

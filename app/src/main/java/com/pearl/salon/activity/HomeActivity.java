@@ -53,6 +53,7 @@ public class HomeActivity extends AppCompatActivity
     final Fragment fragment4 = new AppointmentFragment();
     final Fragment fragment5 = new ProfileFragment();
     private FragmentTransaction fragmentTransaction;
+    private Toolbar toolbar;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -62,18 +63,23 @@ public class HomeActivity extends AppCompatActivity
             switch (item.getItemId()) {
                 case R.id.nav_home:
                     switchFragment(fragment1);
+                    toolbar.setTitle("Home");
                     return true;
                 case R.id.nav_nearby:
                     switchFragment(fragment2);
+                    toolbar.setTitle("Nearby");
                     return true;
                 case R.id.nav_inbox:
                     switchFragment(fragment3);
+                    toolbar.setTitle("Inbox");
                     return true;
                 case R.id.nav_appointment:
                     switchFragment(fragment4);
+                    toolbar.setTitle("Appointment");
                     return true;
                 case R.id.nav_profile:
                     switchFragment(fragment5);
+                    toolbar.setTitle("Profile");
                     return true;
             }
             return false;
@@ -85,7 +91,7 @@ public class HomeActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -132,7 +138,7 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     protected void onResume() {
-        if(!AppUtils.isConnectionAvailable(this)){
+        if (!AppUtils.isConnectionAvailable(this)) {
             AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
         }
         super.onResume();
@@ -156,6 +162,25 @@ public class HomeActivity extends AppCompatActivity
                     }
                 }, 2000);
             }
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.home, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.action_notification:
+                Toast.makeText(this, "Notification Clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }

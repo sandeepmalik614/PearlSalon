@@ -58,8 +58,8 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textStyle">bold</item>
     </style>
-    <style name="coll_toolbar_title" parent="@android:style/TextAppearance.Medium">
-        <item name="android:textSize">20dp</item>
+    <style name="mainToolbar" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
 
