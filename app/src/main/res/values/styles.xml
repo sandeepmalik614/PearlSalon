@@ -59,8 +59,9 @@
         <item name="android:textStyle">bold</item>
     </style>
     <style name="mainToolbar" parent="@android:style/TextAppearance.Medium">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold|italic</item>
     </style>
 
 </resources>

@@ -63,23 +63,23 @@ public class HomeActivity extends AppCompatActivity
             switch (item.getItemId()) {
                 case R.id.nav_home:
                     switchFragment(fragment1);
-                    toolbar.setTitle("Home");
+                    toolbar.setTitle("Home ");
                     return true;
                 case R.id.nav_nearby:
                     switchFragment(fragment2);
-                    toolbar.setTitle("Nearby");
+                    toolbar.setTitle("Nearby ");
                     return true;
                 case R.id.nav_inbox:
                     switchFragment(fragment3);
-                    toolbar.setTitle("Inbox");
+                    toolbar.setTitle("Inbox ");
                     return true;
                 case R.id.nav_appointment:
                     switchFragment(fragment4);
-                    toolbar.setTitle("Appointment");
+                    toolbar.setTitle("Appointment ");
                     return true;
                 case R.id.nav_profile:
                     switchFragment(fragment5);
-                    toolbar.setTitle("Profile");
+                    toolbar.setTitle("Profile ");
                     return true;
             }
             return false;
