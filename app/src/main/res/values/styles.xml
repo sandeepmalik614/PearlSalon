@@ -32,36 +32,22 @@
         <item name="android:textSize">11sp</item>
     </style>
 
-    <style name="NavigationDrawerStyle">
-        <item name="android:textSize">16sp</item><!-- text size in menu-->
-        <item name="android:textStyle">normal</item>
-        <item name="android:listPreferredItemHeightSmall">@dimen/abc_action_bar_default_height_material</item>
-    </style>
-
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
         <item name="color">@android:color/white</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <style name="exp_toolbar_title" parent="@android:style/TextAppearance.Holo.Medium">
-        <item name="android:textSize">36dp</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textAlignment">center</item>
-        <item name="android:textStyle">bold</item>
-    </style>
     <style name="mainToolbar" parent="@android:style/TextAppearance.Medium">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="android:minHeight">15dp</item>
+        <item name="android:maxHeight">15dp</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/colorPrimaryDark</item>
     </style>
 
 </resources>

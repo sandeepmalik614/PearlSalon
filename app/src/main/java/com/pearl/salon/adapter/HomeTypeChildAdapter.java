@@ -57,9 +57,9 @@ public class HomeTypeChildAdapter extends RecyclerView.Adapter<HomeTypeChildAdap
             @Override
             public void onClick(View view) {
                 if(salonData.get(position).isAdd()){
-                    homeClickListner.childClick("This is add");
+                    homeClickListner.childClick("This is add", true);
                 }else{
-                    homeClickListner.childClick(salonData.get(position).getTitle());
+                    homeClickListner.childClick(salonData.get(position).getTitle(), false);
                 }
             }
         });

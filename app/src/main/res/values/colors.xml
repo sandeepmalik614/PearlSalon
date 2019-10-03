@@ -5,11 +5,9 @@
     <color name="colorAccent">#fe9353</color>
 
     <color name="secondry">#fd6c57</color>
-    <color name="primaryDark">#4E0404</color>
-    <color name="light_gray">#33000000</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
-    <color name="gray">#787878</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="gray">#787878</color>
 
 </resources>

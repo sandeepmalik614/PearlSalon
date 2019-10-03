@@ -1,6 +1,7 @@
 package com.pearl.salon.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pearl.salon.R;
+import com.pearl.salon.activity.SalonDetailActivity;
 import com.pearl.salon.adapter.HomeTypesAdapter;
 import com.pearl.salon.adapter.MainTopCategoriesAdapter;
 import com.pearl.salon.clickListner.HomeClickListner;
@@ -59,8 +61,12 @@ public class HomeFragment extends Fragment {
         }
 
         @Override
-        public void childClick(String salonName) {
-            Toast.makeText(getActivity(), "" + salonName, Toast.LENGTH_SHORT).show();
+        public void childClick(String salonName, boolean isAdd) {
+            if(isAdd){
+                Toast.makeText(getActivity(), "This is add", Toast.LENGTH_SHORT).show();
+            }else{
+                startActivity(new Intent(getActivity(), SalonDetailActivity.class));
+            }
         }
     };
 

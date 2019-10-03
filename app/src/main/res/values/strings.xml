@@ -1,16 +1,13 @@
 <resources>
     <string name="app_name">Pearl Salon</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="social_placeholder">Book an appointment for\nSalon, Spa &amp; Barber.</string>
     <string name="forgot_placeholder">Please enter your email address. you will receive a code to create a new password via email.</string>
     <string name="reset_password">Please create a new password. Your new password or confirm password should be same.</string>
     <string name="signup_condition">By continuing <b>Sign up</b> you agree to the following <b>Terms &amp; Conditions</b> without reservation.</string>
-    <string name="already_have_an_account">Already have an account? <font color='#fe9353'>Sign in</font></string>
-    <string name="login_social">Or login with <font color='#fe9353'>Social Network</font></string>
+    <string name="already_have_an_account">Already have an account? </string>
+    <string name="login_social">Or login with </string>
     <string name="mobile_verify">We will be send you an SMS with code after enter a valid mobile number to verify your Mobile Number.</string>
 
     <string name="mobile_verify_popup_text1">Code has been sent to verify mobile number.</string>
@@ -26,13 +23,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_home">HomeActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
@@ -41,5 +36,4 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 
-    <string name="test">Attribute layout_collapseMode controls how child views of collapsing toolbar layout move when layout is moving. If layout_collapseMode of a view is set to parallax, it moves in parallax fashion. When layout_collapseMode attribute is set to pin, view is placed in a fixed position. Below screens show toolbar when layout_collapseMode is set to pin and without the layout_collapseMode setting.Attribute layout_collapseMode controls how child views of collapsing toolbar layout move when layout is moving. If layout_collapseMode of a view is set to parallax, it moves in parallax fashion. When layout_collapseMode attribute is set to pin, view is placed in a fixed position. Below screens show toolbar when layout_collapseMode is set to pin and without the layout_collapseMode setting.Attribute layout_collapseMode controls how child views of collapsing toolbar layout move when layout is moving. If layout_collapseMode of a view is set to parallax, it moves in parallax fashion. When layout_collapseMode attribute is set to pin, view is placed in a fixed position. Below screens show toolbar when layout_collapseMode is set to pin and without the layout_collapseMode setting.</string>
 </resources>
