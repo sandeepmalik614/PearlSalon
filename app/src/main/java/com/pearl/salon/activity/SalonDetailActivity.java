@@ -2,6 +2,8 @@ package com.pearl.salon.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -10,19 +12,23 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.pearl.salon.R;
+import com.pearl.salon.adapter.SalonSpecialistAdapter;
 
 public class SalonDetailActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
-    private ImageView salonImage;
+    private ImageView salonImage, img_like_salon;
     private TextView tv_salonName, tv_salonAdd, tv_salonStatus, tv_reviewCount;
     private RatingBar ratingBar;
+    private RecyclerView rv_salonSpecialists;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_salon_detail);
 
+        rv_salonSpecialists = findViewById(R.id.rv_salonSpecialists);
+        img_like_salon = findViewById(R.id.img_like_salon);
         salonImage = findViewById(R.id.imageView16);
         tv_salonName = findViewById(R.id.textView31);
         tv_salonAdd = findViewById(R.id.textView30);
@@ -31,6 +37,9 @@ public class SalonDetailActivity extends AppCompatActivity {
         ratingBar = findViewById(R.id.ratingBarDetailPage);
         toolbar = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
+
+        rv_salonSpecialists.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
+        rv_salonSpecialists.setAdapter(new SalonSpecialistAdapter(this));
 
         tv_salonName.setText("Main Street Salon");
         tv_salonAdd.setText("Raquel, Christine & Mamie 3821 Main Street Culver City, CA 90232");

@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.SalonDetailActivity"></activity>
+        <activity android:name=".activity.SalonDetailActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.HomeActivity"
             android:screenOrientation="portrait" />
