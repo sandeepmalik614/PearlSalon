@@ -284,13 +284,17 @@
                 android:id="@+id/tab_salonSpecialists"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/vp_salonSpecialists"
+            <FrameLayout
+                android:id="@+id/fragment_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="top"
-                android:layout_marginBottom="8dp"/>
+                android:layout_height="match_parent"/>
+
+<!--            <androidx.viewpager.widget.ViewPager-->
+<!--                android:id="@+id/vp_salonSpecialists"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="top"-->
+<!--                android:layout_marginBottom="8dp"/>-->
 
         </LinearLayout>
 

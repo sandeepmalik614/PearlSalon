@@ -33,7 +33,7 @@ public class SalonDetailActivity extends AppCompatActivity {
     private boolean isLike = false;
     private SalonSpecialostTabAdapter mainTabAdapter;
     private TabLayout tabLayout;
-    private ViewPager viewPager;
+//    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class SalonDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_salon_detail);
 
         tabLayout = findViewById(R.id.tab_salonSpecialists);
-        viewPager = findViewById(R.id.vp_salonSpecialists);
+//        viewPager = findViewById(R.id.vp_salonSpecialists);
         rv_salonSpecialists = findViewById(R.id.rv_salonSpecialists);
         img_like_salon = findViewById(R.id.img_like_salon);
         salonImage = findViewById(R.id.imageView16);
@@ -60,8 +60,51 @@ public class SalonDetailActivity extends AppCompatActivity {
         mainTabAdapter.addFragment(new SalonGalleryFragment(), "Gallery");
         mainTabAdapter.addFragment(new SalonReviewFragment(), "Review");
 
-        viewPager.setAdapter(mainTabAdapter);
-        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.addTab(tabLayout.newTab().setText("About"));
+        tabLayout.addTab(tabLayout.newTab().setText("Services"));
+        tabLayout.addTab(tabLayout.newTab().setText("Gallery"));
+        tabLayout.addTab(tabLayout.newTab().setText("Review"));
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new SalonAboutFragment()).commit();
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                int position = tab.getPosition();
+                switch (tab.getPosition()) {
+                    case 0:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, new SalonAboutFragment()).commit();
+                        break;
+                    case 1:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, new SalonServicesFragment()).commit();
+                        break;
+                    case 2:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, new SalonGalleryFragment()).commit();
+                        break;
+                    case 3:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, new SalonReviewFragment()).commit();
+                        break;
+                    // Continue for each tab in TabLayout
+                }
+
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
         rv_salonSpecialists.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
         rv_salonSpecialists.setAdapter(new SalonSpecialistAdapter(this));
@@ -74,10 +117,10 @@ public class SalonDetailActivity extends AppCompatActivity {
         img_like_salon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isLike){
+                if (isLike) {
                     isLike = false;
                     img_like_salon.setBackgroundResource(R.drawable.ic_favorite_not_24dp);
-                }else{
+                } else {
                     isLike = true;
                     img_like_salon.setBackgroundResource(R.drawable.ic_favorite_24dp);
                 }

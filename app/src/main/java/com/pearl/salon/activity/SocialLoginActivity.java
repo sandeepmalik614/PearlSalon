@@ -243,7 +243,7 @@ public class SocialLoginActivity extends AppCompatActivity {
                                 Intent intent = new Intent(SocialLoginActivity.this, HomeActivity.class);
                                 clearAllIntent(intent);
                                 startActivity(intent);
-                                finish(); 
+                                finish();
                             } catch (Exception e) {
                                 Toast.makeText(SocialLoginActivity.this, "User email not found from facebook", Toast.LENGTH_SHORT).show();
                             }
