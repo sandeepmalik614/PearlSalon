@@ -38,7 +38,7 @@ public class HomeTypeChildAdapter extends RecyclerView.Adapter<HomeTypeChildAdap
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (viewType == VIEW_TYPE_SALON) {
-            View view = LayoutInflater.from(context).inflate(R.layout.item_home_best_salon, parent, false);
+            View view = LayoutInflater.from(context).inflate(R.layout.item_salon, parent, false);
             return new ViewHolder(view);
         } else {
             View view = LayoutInflater.from(context).inflate(R.layout.item_main_add, parent, false);

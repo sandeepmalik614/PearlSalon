@@ -20,6 +20,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.pearl.salon.R;
 import com.pearl.salon.activity.OtpVerificationActivity;
 
@@ -148,5 +154,19 @@ public class AppUtils {
         String color = String.format("#%02x%02x%02x", red, green, blue);
         color = color.replace("android.graphics.drawable.GradientDrawable@", "");
         return color;
+    }
+
+    public static void getNewFirebaseToken(final Context context) {
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (task.isSuccessful()) {
+                            AppPrefference.setFirebaseToken(context, task.getResult().getToken());
+                        } else {
+                            getNewFirebaseToken(context);
+                        }
+                    }
+                });
     }
 }

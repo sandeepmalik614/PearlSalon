@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Pearl Salon</string>
 
+    <string name="facebook_app_id">1272793699567868</string>
+    <string name="fb_login_protocol_scheme">fb1272793699567868</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="social_placeholder">Book an appointment for\nSalon, Spa &amp; Barber.</string>
     <string name="forgot_placeholder">Please enter your email address. you will receive a code to create a new password via email.</string>

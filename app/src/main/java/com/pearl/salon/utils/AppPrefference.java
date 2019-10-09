@@ -93,6 +93,18 @@ public class AppPrefference {
         return mPrefs.getString("userGender", "");
     }
 
+    public static String getFirebaseToken(Context ctx) {
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        return mPrefs.getString("FirebaseToken", "");
+    }
+
+    public static void setFirebaseToken(Context ctx, String value) {
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        mPrefsEditor = mPrefs.edit();
+        mPrefsEditor.putString("FirebaseToken", value);
+        mPrefsEditor.commit();
+    }
+
     public static void clearAllPreferences(Context ctx) {
         mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
         mPrefsEditor = mPrefs.edit();

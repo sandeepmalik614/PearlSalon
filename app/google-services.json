@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "613545755706",
+    "firebase_url": "https://pearl-67977.firebaseio.com",
+    "project_id": "pearl-67977",
+    "storage_bucket": "pearl-67977.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613545755706:android:063d720c529cc4a9c36103",
+        "android_client_info": {
+          "package_name": "com.pearl.salon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613545755706-623ghc2mmgc6q3tq9ht1vh8r0o8rati4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pearl.salon",
+            "certificate_hash": "7320bcff652b7214b1d0b569fb1905146b8feda2"
+          }
+        },
+        {
+          "client_id": "613545755706-gho5vgl506a07qgvhe60k10undqpmstp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCknu54zMskospjgrxBotRJTEz2cxt1LBU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "613545755706-gho5vgl506a07qgvhe60k10undqpmstp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
