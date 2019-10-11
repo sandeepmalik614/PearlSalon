@@ -50,7 +50,7 @@ public class HomeTypeChildAdapter extends RecyclerView.Adapter<HomeTypeChildAdap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.salonImage.setBackgroundColor(Color.parseColor(colorList.get(position)));
-        Glide.with(context).load("https://img4.nbstatic.in/tr:w-500/5cc941465f1503000d3ab644.png").into(holder.salonImage);
+        Glide.with(context).load(salonData.get(position).getImage()).into(holder.salonImage);
         holder.title.setText(salonData.get(position).getTitle());
         holder.add.setText(salonData.get(position).getAddress());
         holder.star.setText(salonData.get(position).getRating());

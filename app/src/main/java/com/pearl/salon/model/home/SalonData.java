@@ -10,11 +10,22 @@ public class SalonData {
 
     private boolean isAdd;
 
-    public SalonData(String title, String rating, String address, boolean isAdd) {
+    private String image;
+
+    public SalonData(String title, String rating, String address, boolean isAdd, String image) {
         this.title = title;
         this.rating = rating;
         this.address = address;
         this.isAdd = isAdd;
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public boolean isAdd() {

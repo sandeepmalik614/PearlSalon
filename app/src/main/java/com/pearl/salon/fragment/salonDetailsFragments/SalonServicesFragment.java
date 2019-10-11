@@ -146,17 +146,17 @@ public class SalonServicesFragment extends Fragment {
                                                 "Free Cancellation", "\u20B9 349",
                 "https://img4.nbstatic.in/tr:w-500/5cc941465f1503000d3ab644.png");
         ServicePackageList data1 = new ServicePackageList("Choose any 5 services", "Free Cancellation", "\u20B9 449",
-                "https://img4.nbstatic.in/tr:w-500/5cc941465f1503000d3ab644.png");
+                "https://www.hughcampbellhairgroup.com/files/2017/03/MARSALONPM.jpg");
         ServicePackageList data2 = new ServicePackageList("Choose any 5 services", "Free Cancellation", "\u20B9 349",
-                "https://img4.nbstatic.in/tr:w-500/5cc941465f1503000d3ab644.png");
+                "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
         ServicePackageList data3 = new ServicePackageList("Hair Keratin/Smoothening (Any Length)", "Free Cancellation", "\u20B9 3300",
-                "https://img4.nbstatic.in/tr:w-500/5cc941465f1503000d3ab644.png");
+                "https://lh3.googleusercontent.com/1I0GR6VnT28qSfTiaFxeKe_JGNVsNcm_qdIXwLkSf-lNSVUPqFRU5ngebDxrkeQ5h8ufbOI=w1080-h608-p-no-v0");
         ServicePackageList data4 = new ServicePackageList("Global Color/Highlights Color", "Free Cancellation", "\u20B9 2499",
-                "https://img4.nbstatic.in/tr:w-500/5cc941465f1503000d3ab644.png");
+                "https://images.jdmagicbox.com/comp/delhi/s6/011pxx11.xx11.180309151252.p4s6/catalogue/d-and-a-the-unisex-salon-rohini-delhi-beauty-parlours-for-makeup-6vkqykyndg.jpg");
         ServicePackageList data5 = new ServicePackageList("Women: Haircut (Any Style)", "Free Cancellation", "\u20B9 799",
-                "https://img4.nbstatic.in/tr:w-500/5cc941465f1503000d3ab644.png");
+                "https://du0xldifh78n8.cloudfront.net/c/m.icapellisalon.com/a355920/5496b20d28ae215a801514bc43591c7e/2/1920");
         ServicePackageList data6 = new ServicePackageList("Men: Haircut (Any Style)", "Free Cancellation", "\u20B9 349",
-                "https://img4.nbstatic.in/tr:w-500/5cc941465f1503000d3ab644.png");
+                "https://www.salonpricelady.com/wp-content/uploads/2016/02/hair-salon-inside.jpg");
 
         ArrayList<ServicePackageList> packageLists = new ArrayList<>();
 
