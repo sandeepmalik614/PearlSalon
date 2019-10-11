@@ -1,6 +1,7 @@
 package com.pearl.salon.fragment.salonDetailsFragments;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.pearl.salon.R;
@@ -19,15 +21,15 @@ import com.pearl.salon.clickListner.TopCategoriesClickListner;
 import java.util.ArrayList;
 
 import static com.pearl.salon.utils.AppUtils.generateDarkRenadomNumber;
+import static com.pearl.salon.utils.AppUtils.generateLightRenadomNumber;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class SalonAboutFragment extends Fragment {
 
-    private RecyclerView rv_aboutPhotos;
     private View mainView;
-    private ArrayList<String> darkColorList;
+    private ImageView img_photoOne, img_photoTwo, img_photoThree, img_photoFour;
 
     private TopCategoriesClickListner topCategoriesClickListner = new TopCategoriesClickListner() {
         @Override
@@ -42,24 +44,16 @@ public class SalonAboutFragment extends Fragment {
         // Inflate the layout for this fragment
         mainView = inflater.inflate(R.layout.fragment_salon_about, container, false);
 
-        rv_aboutPhotos = mainView.findViewById(R.id.rv_aboutPhotos);
+        img_photoOne = mainView.findViewById(R.id.img_aboutPhotoOne);
+        img_photoTwo = mainView.findViewById(R.id.img_aboutPhotoTwo);
+        img_photoThree = mainView.findViewById(R.id.img_aboutPhotoThree);
+        img_photoFour = mainView.findViewById(R.id.img_aboutPhotoFour);
 
-        rv_aboutPhotos.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
-        setTopCategoryAdapter();
+        img_photoOne.setBackgroundColor(Color.parseColor(generateLightRenadomNumber()));
+        img_photoTwo.setBackgroundColor(Color.parseColor(generateLightRenadomNumber()));
+        img_photoThree.setBackgroundColor(Color.parseColor(generateLightRenadomNumber()));
+        img_photoFour.setBackgroundColor(Color.parseColor(generateLightRenadomNumber()));
 
         return mainView;
     }
-
-    private void setTopCategoryAdapter() {
-        rv_aboutPhotos.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
-        darkColorList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            darkColorList.add(generateDarkRenadomNumber());
-            if (i == 9) {
-                rv_aboutPhotos.setAdapter(new MainTopCategoriesAdapter(getActivity(), darkColorList, topCategoriesClickListner));
-                break;
-            }
-        }
-    }
-
 }

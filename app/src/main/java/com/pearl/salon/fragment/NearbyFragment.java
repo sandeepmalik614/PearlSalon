@@ -21,9 +21,8 @@ import com.pearl.salon.adapter.HomeTypesAdapter;
 import com.pearl.salon.adapter.MainTopCategoriesAdapter;
 import com.pearl.salon.clickListner.HomeClickListner;
 import com.pearl.salon.clickListner.TopCategoriesClickListner;
-import com.pearl.salon.model.MainList;
-import com.pearl.salon.model.SalonData;
-import com.pearl.salon.utils.AppUtils;
+import com.pearl.salon.model.home.MainList;
+import com.pearl.salon.model.home.SalonData;
 
 import java.util.ArrayList;
 import java.util.Objects;

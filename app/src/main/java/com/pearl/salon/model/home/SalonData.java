@@ -1,4 +1,4 @@
-package com.pearl.salon.model;
+package com.pearl.salon.model.home;
 
 public class SalonData {
 

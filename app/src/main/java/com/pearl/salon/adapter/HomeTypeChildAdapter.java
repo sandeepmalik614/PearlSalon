@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.pearl.salon.R;
 import com.pearl.salon.clickListner.HomeClickListner;
-import com.pearl.salon.model.SalonData;
+import com.pearl.salon.model.home.SalonData;
 
 import java.util.ArrayList;
 
