@@ -189,7 +189,8 @@
             <ImageView
                 android:id="@+id/img_aboutPhotoOne"
                 android:layout_width="match_parent"
-                android:layout_height="60dp" />
+                android:layout_height="60dp"
+                android:scaleType="centerCrop"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -203,7 +204,8 @@
             <ImageView
                 android:id="@+id/img_aboutPhotoTwo"
                 android:layout_width="match_parent"
-                android:layout_height="60dp" />
+                android:layout_height="60dp"
+                android:scaleType="centerCrop"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -217,7 +219,8 @@
             <ImageView
                 android:id="@+id/img_aboutPhotoThree"
                 android:layout_width="match_parent"
-                android:layout_height="60dp" />
+                android:layout_height="60dp"
+                android:scaleType="centerCrop"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -236,7 +239,8 @@
                 <ImageView
                     android:id="@+id/img_aboutPhotoFour"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"/>
 
                 <View
                     android:layout_width="match_parent"

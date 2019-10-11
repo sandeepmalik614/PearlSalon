@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.pearl.salon.R;
 import com.pearl.salon.adapter.MainTopCategoriesAdapter;
 import com.pearl.salon.clickListner.TopCategoriesClickListner;
@@ -53,6 +54,11 @@ public class SalonAboutFragment extends Fragment {
         img_photoTwo.setBackgroundColor(Color.parseColor(generateLightRenadomNumber()));
         img_photoThree.setBackgroundColor(Color.parseColor(generateLightRenadomNumber()));
         img_photoFour.setBackgroundColor(Color.parseColor(generateLightRenadomNumber()));
+
+        Glide.with(this).load("https://content2.jdmagicbox.com/comp/nagpur/h1/0712px712.x712.180820103619.k5h1/catalogue/beau-salon-hair-spa-clinic--nagpur-1hfoonmufe.jpg").into(img_photoOne);
+        Glide.with(this).load("https://luxurylifestyleawards.com/wp/wp-content/uploads/2018/10/beauty20salon-1.png").into(img_photoTwo);
+        Glide.with(this).load("https://snailz.s3.amazonaws.com/5b7199b3e0812.jpg").into(img_photoThree);
+        Glide.with(this).load("https://s17026.pcdn.co/wp-content/uploads/sites/9/2016/06/1-229.jpg").into(img_photoFour);
 
         return mainView;
     }

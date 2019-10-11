@@ -144,9 +144,9 @@ public class AppUtils {
 
     public static String generateLightRenadomNumber() {
         Random r = new Random();
-        int red = r.nextInt(255 - 0 + 1) + 1;
-        int green = r.nextInt(150 - 25 + 1) + 1;
-        int blue = r.nextInt(150 - 100 + 1) + 1;
+        int red = r.nextInt(253 - 100 + 1) + 100;
+        int green = r.nextInt(200 - 150 + 1) + 150;
+        int blue = r.nextInt(200 - 150 + 1) + 150;
 
         GradientDrawable draw = new GradientDrawable();
         draw.setShape(GradientDrawable.OVAL);

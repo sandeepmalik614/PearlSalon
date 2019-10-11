@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.pearl.salon.R;
 import com.pearl.salon.model.service.ServiceList;
 
@@ -23,11 +24,13 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
     private Context context;
     private ArrayList<ServiceList> arrayList;
     private ArrayList<String> colorList;
+    private boolean isPrice = false;
 
-    public ServiceAdapter(Context context, ArrayList<ServiceList> arrayList, ArrayList<String> colorList) {
+    public ServiceAdapter(Context context, ArrayList<ServiceList> arrayList, ArrayList<String> colorList, boolean isPrice) {
         this.context = context;
         this.arrayList = arrayList;
         this.colorList = colorList;
+        this.isPrice = isPrice;
     }
 
     @NonNull
@@ -42,8 +45,15 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
 
         String color = colorList.get(position);
         holder.serviceImage.setBackgroundColor(Color.parseColor(color));
+        Glide.with(context).load("https://img4.nbstatic.in/tr:w-500/5cc941465f1503000d3ab644.png").into(holder.serviceImage);
         holder.serviceName.setText(arrayList.get(position).getServiceName());
         holder.serviceType.setText(arrayList.get(position).getServiceType());
+
+        if(isPrice){
+           holder.serviceView.setVisibility(View.GONE);
+        }else{
+            holder.serviceView.setVisibility(View.VISIBLE);
+        }
 
     }
 

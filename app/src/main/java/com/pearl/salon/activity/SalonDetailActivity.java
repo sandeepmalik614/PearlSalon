@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.QuickContactBadge;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -17,7 +15,6 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 import com.pearl.salon.R;
 import com.pearl.salon.adapter.SalonSpecialistAdapter;
-import com.pearl.salon.adapter.SalonSpecialostTabAdapter;
 import com.pearl.salon.fragment.salonDetailsFragments.SalonAboutFragment;
 import com.pearl.salon.fragment.salonDetailsFragments.SalonGalleryFragment;
 import com.pearl.salon.fragment.salonDetailsFragments.SalonReviewFragment;
@@ -31,9 +28,7 @@ public class SalonDetailActivity extends AppCompatActivity {
     private RatingBar ratingBar;
     private RecyclerView rv_salonSpecialists;
     private boolean isLike = false;
-    private SalonSpecialostTabAdapter mainTabAdapter;
     private TabLayout tabLayout;
-//    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,13 +47,6 @@ public class SalonDetailActivity extends AppCompatActivity {
         ratingBar = findViewById(R.id.ratingBarDetailPage);
         toolbar = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
-
-        mainTabAdapter = new SalonSpecialostTabAdapter(getSupportFragmentManager(), this);
-
-        mainTabAdapter.addFragment(new SalonAboutFragment(), "About");
-        mainTabAdapter.addFragment(new SalonServicesFragment(), "Services");
-        mainTabAdapter.addFragment(new SalonGalleryFragment(), "Gallery");
-        mainTabAdapter.addFragment(new SalonReviewFragment(), "Review");
 
         tabLayout.addTab(tabLayout.newTab().setText("About"));
         tabLayout.addTab(tabLayout.newTab().setText("Services"));
