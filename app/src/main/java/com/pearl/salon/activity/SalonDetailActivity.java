@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -20,7 +19,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 import com.pearl.salon.R;
-import com.pearl.salon.adapter.SalonSpecialistAdapter;
+import com.pearl.salon.adapter.salonDetail.SalonSpecialistAdapter;
 import com.pearl.salon.fragment.salonDetailsFragments.SalonAboutFragment;
 import com.pearl.salon.fragment.salonDetailsFragments.SalonGalleryFragment;
 import com.pearl.salon.fragment.salonDetailsFragments.SalonReviewFragment;
@@ -132,7 +131,7 @@ public class SalonDetailActivity extends AppCompatActivity {
                 if (scrollY > oldScrollY) {
                     if(!isDarkTootlbar){
                         isDarkTootlbar = true;
-                        toolbar.setBackgroundColor(Color.parseColor("#66787878"));
+                        toolbar.setBackgroundResource(R.color.colorPrimary);
                         Animation fadeIn = AnimationUtils
                                 .loadAnimation(SalonDetailActivity.this, R.anim.fade_in);
                         toolbar.startAnimation(fadeIn);
@@ -141,7 +140,7 @@ public class SalonDetailActivity extends AppCompatActivity {
 
                 if (scrollY == 0) {
                     isDarkTootlbar = false;
-                    toolbar.setBackgroundColor(Color.parseColor("#00FFFFFF"));
+                    toolbar.setBackgroundResource(R.color.transparent);
                     Animation fadeIn = AnimationUtils
                             .loadAnimation(SalonDetailActivity.this, R.anim.fade_in);
                     toolbar.startAnimation(fadeIn);

@@ -42,8 +42,6 @@ public class MainTopCategoriesAdapter extends RecyclerView.Adapter<MainTopCatego
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         String color = colorList.get(position);
-        holder.card_top_categories.setBackgroundColor(Color.parseColor(color));
-        Glide.with(context).load("https://img4.nbstatic.in/tr:w-500/5cc941465f1503000d3ab644.png").into(holder.card_top_categories);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -13,8 +13,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.pearl.salon.R;
-import com.pearl.salon.adapter.service.ServiceAdapter;
-import com.pearl.salon.adapter.service.ServicePackageAdapter;
+import com.pearl.salon.adapter.salonDetail.ServiceAdapter;
+import com.pearl.salon.adapter.salonDetail.ServicePackageAdapter;
 import com.pearl.salon.model.service.ServiceList;
 import com.pearl.salon.model.service.ServicePackageList;
 

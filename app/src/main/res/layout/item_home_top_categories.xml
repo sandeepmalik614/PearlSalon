@@ -9,8 +9,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_top_categories"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:background="@color/gray"
         app:cardCornerRadius="6dp"
         android:layout_marginTop="4dp">
@@ -19,7 +19,8 @@
             android:id="@+id/img_top_categories"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:src="@drawable/icon"/>
 
     </androidx.cardview.widget.CardView>
 

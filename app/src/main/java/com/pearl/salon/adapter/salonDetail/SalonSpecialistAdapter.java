@@ -1,4 +1,4 @@
-package com.pearl.salon.adapter;
+package com.pearl.salon.adapter.salonDetail;
 
 import android.content.Context;
 import android.view.LayoutInflater;

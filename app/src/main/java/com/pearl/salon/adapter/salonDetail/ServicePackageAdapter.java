@@ -1,6 +1,5 @@
-package com.pearl.salon.adapter.service;
+package com.pearl.salon.adapter.salonDetail;
 
-import android.app.Service;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;

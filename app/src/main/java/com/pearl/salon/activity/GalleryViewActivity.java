@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.pearl.salon.R;
-import com.pearl.salon.adapter.service.GalleryImageSlideAdapter;
+import com.pearl.salon.adapter.salonDetail.GalleryImageSlideAdapter;
 
 import java.util.ArrayList;
 

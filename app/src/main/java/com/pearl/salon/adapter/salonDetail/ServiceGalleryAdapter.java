@@ -1,4 +1,4 @@
-package com.pearl.salon.adapter.service;
+package com.pearl.salon.adapter.salonDetail;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -6,8 +6,6 @@ import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.Image;
-import android.provider.ContactsContract;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +19,6 @@ import com.bumptech.glide.Glide;
 import com.pearl.salon.R;
 import com.pearl.salon.activity.GalleryViewActivity;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ServiceGalleryAdapter extends RecyclerView.Adapter<ServiceGalleryAdapter.ViewHolder> {

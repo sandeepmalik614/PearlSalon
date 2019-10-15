@@ -1,11 +1,10 @@
-package com.pearl.salon.adapter.service;
+package com.pearl.salon.adapter.salonDetail;
 
 import android.content.Context;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.viewpager.widget.PagerAdapter;
 
