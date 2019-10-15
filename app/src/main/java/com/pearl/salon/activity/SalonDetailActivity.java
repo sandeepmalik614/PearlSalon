@@ -2,14 +2,20 @@ package com.pearl.salon.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
@@ -29,7 +35,10 @@ public class SalonDetailActivity extends AppCompatActivity {
     private RecyclerView rv_salonSpecialists;
     private boolean isLike = false;
     private TabLayout tabLayout;
+    private NestedScrollView nsv_salonDetail;
+    private boolean isDarkTootlbar = false;
 
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +54,7 @@ public class SalonDetailActivity extends AppCompatActivity {
         tv_salonStatus = findViewById(R.id.textView28);
         tv_reviewCount = findViewById(R.id.textView29);
         ratingBar = findViewById(R.id.ratingBarDetailPage);
+        nsv_salonDetail = findViewById(R.id.nsv_salonDetail);
         toolbar = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
 
@@ -111,6 +121,34 @@ public class SalonDetailActivity extends AppCompatActivity {
                 } else {
                     isLike = true;
                     img_like_salon.setBackgroundResource(R.drawable.ic_favorite_24dp);
+                }
+            }
+        });
+
+        nsv_salonDetail.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+
+                if (scrollY > oldScrollY) {
+                    if(!isDarkTootlbar){
+                        isDarkTootlbar = true;
+                        toolbar.setBackgroundColor(Color.parseColor("#66787878"));
+                        Animation fadeIn = AnimationUtils
+                                .loadAnimation(SalonDetailActivity.this, R.anim.fade_in);
+                        toolbar.startAnimation(fadeIn);
+                    }
+                }
+
+                if (scrollY == 0) {
+                    isDarkTootlbar = false;
+                    toolbar.setBackgroundColor(Color.parseColor("#00FFFFFF"));
+                    Animation fadeIn = AnimationUtils
+                            .loadAnimation(SalonDetailActivity.this, R.anim.fade_in);
+                    toolbar.startAnimation(fadeIn);
+                }
+
+                if (scrollY == ( v.getMeasuredHeight() - v.getChildAt(0).getMeasuredHeight() )) {
+                    Toast.makeText(SalonDetailActivity.this, "BOTTOM SCROLL", Toast.LENGTH_SHORT).show();
                 }
             }
         });
