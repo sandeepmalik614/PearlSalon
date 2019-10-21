@@ -1,6 +1,7 @@
 package com.pearl.salon.adapter.salonDetail;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.pearl.salon.R;
+import com.pearl.salon.activity.SalonDetailActivity;
+import com.pearl.salon.activity.StaffProfileActivity;
 import com.pearl.salon.utils.CircleImageView;
 
 public class SalonSpecialistAdapter extends RecyclerView.Adapter<SalonSpecialistAdapter.ViewHolder> {
 
     private Context context;
+    private View.OnClickListener onClickListener;
 
-    public SalonSpecialistAdapter(Context context) {
+    public SalonSpecialistAdapter(Context context, View.OnClickListener onClickListener) {
         this.context = context;
+        this.onClickListener = onClickListener;
     }
 
     @NonNull
@@ -31,6 +36,13 @@ public class SalonSpecialistAdapter extends RecyclerView.Adapter<SalonSpecialist
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Glide.with(context).load("https://dixmfnt6b5ogu.cloudfront.net/user/pages/02.home-9a/05._testimonials-2/jonas-eilsoe-profil-kvadrat.jpg?g-5d85d749").into(holder.userImage);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickListener.onClick(view);
+            }
+        });
     }
 
     @Override

@@ -16,6 +16,7 @@ import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ public class SalonAboutFragment extends Fragment {
     private View mainView;
     private ImageView img_photoOne, img_photoTwo, img_photoThree, img_photoFour;
     private ArrayList<String> imageList;
+    private Button btn_book;
 
     private TopCategoriesClickListner topCategoriesClickListner = new TopCategoriesClickListner() {
         @Override
@@ -56,6 +58,7 @@ public class SalonAboutFragment extends Fragment {
         img_photoTwo = mainView.findViewById(R.id.img_aboutPhotoTwo);
         img_photoThree = mainView.findViewById(R.id.img_aboutPhotoThree);
         img_photoFour = mainView.findViewById(R.id.img_aboutPhotoFour);
+        btn_book = mainView.findViewById(R.id.button10);
 
         img_photoOne.setBackgroundColor(Color.parseColor(generateLightRenadomNumber()));
         img_photoTwo.setBackgroundColor(Color.parseColor(generateLightRenadomNumber()));
@@ -119,6 +122,13 @@ public class SalonAboutFragment extends Fragment {
                 ActivityOptions options = ActivityOptions.
                         makeSceneTransitionAnimation(getActivity(), Pair.<View, String>create(img_photoFour, "sliderImage"));
                 startActivity(intent, options.toBundle());
+            }
+        });
+
+        btn_book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
 

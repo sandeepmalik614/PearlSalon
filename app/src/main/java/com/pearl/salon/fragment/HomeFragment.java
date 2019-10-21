@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,6 +53,7 @@ public class HomeFragment extends Fragment {
     private MainList hotDeals;
     private MainList latestSalon;
     private EditText edt_mainSearch;
+    private SwipeRefreshLayout mainSwipe;
 
     private HomeClickListner homeClickListner = new HomeClickListner() {
         @Override
@@ -86,6 +88,7 @@ public class HomeFragment extends Fragment {
         tv_topCatogiresSeeAll = mainView.findViewById(R.id.tv_topCatogiresSeeAll);
         edt_mainSearch = mainView.findViewById(R.id.edt_mainSearch);
         rv_home_types = mainView.findViewById(R.id.rv_home_types);
+        mainSwipe = mainView.findViewById(R.id.homeRefreshLayout);
 
         mainLists = new ArrayList<>();
         bestSalon = new MainList();
@@ -101,6 +104,14 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getActivity(), "Serach", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mainSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                setView();
+                mainSwipe.setRefreshing(false);
             }
         });
 

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -36,6 +37,15 @@ public class SalonDetailActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private NestedScrollView nsv_salonDetail;
     private boolean isDarkTootlbar = false;
+
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent i2 = new Intent(SalonDetailActivity.this, StaffProfileActivity.class);
+            startActivity(i2);
+            overridePendingTransition( R.anim.slide_in_up, R.anim.slide_out_up );
+        }
+    };
 
     @SuppressLint("NewApi")
     @Override
@@ -104,7 +114,7 @@ public class SalonDetailActivity extends AppCompatActivity {
         });
 
         rv_salonSpecialists.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
-        rv_salonSpecialists.setAdapter(new SalonSpecialistAdapter(this));
+        rv_salonSpecialists.setAdapter(new SalonSpecialistAdapter(this, onClickListener));
 
         tv_salonName.setText("Main Street Salon");
         tv_salonAdd.setText("Raquel, Christine & Mamie 3821 Culver City");
