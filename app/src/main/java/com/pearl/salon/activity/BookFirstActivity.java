@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pearl.salon.R;
+import com.pearl.salon.adapter.BookServiceAdapter;
 import com.pearl.salon.model.book.BookHeadingList;
 import com.pearl.salon.model.book.BookServiceList;
 
@@ -46,17 +49,34 @@ public class BookFirstActivity extends AppCompatActivity {
         setLadiesList();
         setManList();
 
+        rv_bookService.setAdapter(new BookServiceAdapter(this, manList));
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                int gender = radioGroup.getCheckedRadioButtonId();
+                RadioButton radioButton = findViewById(gender);
+                if(radioButton.getText().equals("Male")){
+                    rv_bookService.setAdapter(new BookServiceAdapter(BookFirstActivity.this, manList));
+                }else{
+                    rv_bookService.setAdapter(new BookServiceAdapter(BookFirstActivity.this, ladiesList));
+                }
+            }
+        });
+
     }
 
     private void setPriceList(){
         serviceList = new ArrayList<>();
-        BookServiceList data0 = new BookServiceList("Big", 100);
-        BookServiceList data1 = new BookServiceList("Medium", 50);
-        BookServiceList data2 = new BookServiceList("Small", 25);
+        BookServiceList data0 = new BookServiceList("Select service", 0);
+        BookServiceList data1 = new BookServiceList("Large", 200);
+        BookServiceList data2 = new BookServiceList("Medium", 150);
+        BookServiceList data3 = new BookServiceList("Small", 100);
 
         serviceList.add(data0);
         serviceList.add(data1);
         serviceList.add(data2);
+        serviceList.add(data3);
     }
 
     private void setLadiesList(){
@@ -88,12 +108,12 @@ public class BookFirstActivity extends AppCompatActivity {
         BookHeadingList manList5 = new BookHeadingList("Triming", serviceList);
         BookHeadingList manList6 = new BookHeadingList("Hair cut", serviceList);
 
-        ladiesList.add(manList0);
-        ladiesList.add(manList1);
-        ladiesList.add(manList2);
-        ladiesList.add(manList3);
-        ladiesList.add(manList4);
-        ladiesList.add(manList5);
-        ladiesList.add(manList6);
+        manList.add(manList0);
+        manList.add(manList1);
+        manList.add(manList2);
+        manList.add(manList3);
+        manList.add(manList4);
+        manList.add(manList5);
+        manList.add(manList6);
     }
 }

@@ -3,9 +3,11 @@ package com.pearl.salon.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
@@ -20,6 +22,7 @@ public class StaffProfileActivity extends AppCompatActivity {
     private ImageView bannerImage, img_staff_back, img_staff_save;
     private TabLayout tab_barberProfile;
     private boolean isSaved = false;
+    private TextView bookNow;
 
     @SuppressLint("NewApi")
     @Override
@@ -32,6 +35,7 @@ public class StaffProfileActivity extends AppCompatActivity {
         tab_barberProfile = findViewById(R.id.tab_barberProfile);
         img_staff_back = findViewById(R.id.img_staff_back);
         img_staff_save = findViewById(R.id.img_staff_save);
+        bookNow = findViewById(R.id.tv_barberProfile_book);
 
         img_staff_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +54,13 @@ public class StaffProfileActivity extends AppCompatActivity {
                     isSaved = true;
                     img_staff_save.setBackgroundResource(R.drawable.ic_saved_24dp);
                 }
+            }
+        });
+
+        bookNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(StaffProfileActivity.this, BookFirstActivity.class));
             }
         });
 

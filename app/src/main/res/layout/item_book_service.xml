@@ -8,13 +8,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <Spinner
-        android:id="@+id/spinner"
+    <TextView
+        android:id="@+id/textView61"
         android:layout_width="0dp"
-        android:layout_height="46dp"
-        android:background="@color/spinner_gray"
+        android:layout_height="36dp"
         android:layout_marginStart="120dp"
-        android:paddingRight="32dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/spinner_gray"
+        android:drawableRight="@drawable/ic_arrow_drop_down_24dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/black"
+        android:text="Select service"
+        android:paddingLeft="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -23,26 +28,13 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView61"
+        android:id="@+id/textView62"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textColor="@color/gray"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner"
-        app:layout_constraintEnd_toStartOf="@+id/spinner"
+        android:maxLines="2"
+        app:layout_constraintBottom_toBottomOf="@+id/textView61"
+        app:layout_constraintEnd_toStartOf="@+id/textView61"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner"
-        app:layout_constraintEnd_toEndOf="@+id/spinner"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/spinner"
-        app:layout_constraintTop_toTopOf="@+id/spinner"
-        app:srcCompat="@drawable/ic_arrow_drop_down_24dp"
-        tools:ignore="VectorDrawableCompat" />
 </androidx.constraintlayout.widget.ConstraintLayout>

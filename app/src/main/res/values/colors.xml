@@ -9,7 +9,7 @@
     <color name="white">#ffffff</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="gray">#787878</color>
-    <color name="spinner_gray">#DDDDDD</color>
+    <color name="spinner_gray">#F1F1F1</color>
 
     <color name="storeOpenColor">#4CAF50</color>
     <color name="storeCloseColor">#F44336</color>

@@ -1,6 +1,7 @@
 package com.pearl.salon.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.pearl.salon.R;
+import com.pearl.salon.activity.BookFirstActivity;
 import com.pearl.salon.clickListner.HomeClickListner;
 import com.pearl.salon.model.home.SalonData;
 
@@ -63,6 +65,13 @@ public class HomeTypeChildAdapter extends RecyclerView.Adapter<HomeTypeChildAdap
                 }else{
                     homeClickListner.childClick(salonData.get(position).getTitle(), false);
                 }
+            }
+        });
+
+        holder.book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(context, BookFirstActivity.class));
             }
         });
     }

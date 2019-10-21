@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.pearl.salon.R;
+import com.pearl.salon.activity.BookFirstActivity;
 import com.pearl.salon.activity.GalleryViewActivity;
 import com.pearl.salon.adapter.MainTopCategoriesAdapter;
 import com.pearl.salon.clickListner.TopCategoriesClickListner;
@@ -128,7 +129,7 @@ public class SalonAboutFragment extends Fragment {
         btn_book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(getActivity(), BookFirstActivity.class));
             }
         });
 
