@@ -147,11 +147,19 @@ public class NearbyFragment extends Fragment {
 
     private void setTopCategoryAdapter() {
         rv_topServices.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
+        ArrayList<Integer> iconList = new ArrayList<>();
+        iconList.add(R.drawable.cosmetics);
+        iconList.add(R.drawable.cosmetics1);
+        iconList.add(R.drawable.grooming);
+        iconList.add(R.drawable.hair_cutting);
+        iconList.add(R.drawable.make_up);
+        iconList.add(R.drawable.makeover);
+        iconList.add(R.drawable.moisturizer);
         darkColorList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < iconList.size(); i++) {
             darkColorList.add(generateDarkRenadomNumber());
-            if (i == 9) {
-                rv_topServices.setAdapter(new MainTopCategoriesAdapter(getActivity(), darkColorList, topCategoriesClickListner));
+            if (i == (iconList.size()-1)) {
+                rv_topServices.setAdapter(new MainTopCategoriesAdapter(getActivity(), darkColorList, topCategoriesClickListner, iconList));
                 break;
             }
         }

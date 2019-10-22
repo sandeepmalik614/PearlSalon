@@ -13,14 +13,13 @@
         android:layout_height="60dp"
         android:background="@color/gray"
         app:cardCornerRadius="6dp"
-        android:layout_marginTop="4dp">
+        android:layout_margin="2dp">
 
         <ImageView
             android:id="@+id/img_top_categories"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/icon"/>
+            android:layout_margin="4dp"/>
 
     </androidx.cardview.widget.CardView>
 

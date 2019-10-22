@@ -25,11 +25,13 @@ public class MainTopCategoriesAdapter extends RecyclerView.Adapter<MainTopCatego
     private Context context;
     private ArrayList<String> colorList;
     private TopCategoriesClickListner clickListner;
+    private ArrayList<Integer> iconList;
 
-    public MainTopCategoriesAdapter(Context context, ArrayList<String> colorList, TopCategoriesClickListner clickListner) {
+    public MainTopCategoriesAdapter(Context context, ArrayList<String> colorList, TopCategoriesClickListner clickListner, ArrayList<Integer> iconList) {
         this.context = context;
         this.colorList = colorList;
         this.clickListner = clickListner;
+        this.iconList = iconList;
     }
 
     @NonNull
@@ -41,7 +43,9 @@ public class MainTopCategoriesAdapter extends RecyclerView.Adapter<MainTopCatego
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
-        String color = colorList.get(position);
+
+        Glide.with(context).load(iconList.get(position)).into(holder.card_top_categories);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
