@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -12,8 +13,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.pearl.salon.R;
 import com.pearl.salon.adapter.BookServiceAdapter;
+import com.pearl.salon.clickListner.BookServiceClickListner;
 import com.pearl.salon.model.book.BookHeadingList;
 import com.pearl.salon.model.book.BookServiceList;
 
@@ -28,8 +31,46 @@ public class BookFirstActivity extends AppCompatActivity {
     private Button btn_book;
 
     private ArrayList<BookServiceList> serviceList;
+    private ArrayList<BookServiceList> selectedList;
     private ArrayList<BookHeadingList> ladiesList;
     private ArrayList<BookHeadingList> manList;
+    private BookServiceList selectedData;
+    private int selectedPrice = 0;
+
+    private BookServiceClickListner clickListner = new BookServiceClickListner() {
+        @Override
+        public void onPriceAdd(String name, int price) {
+            selectedData = new BookServiceList(name, price);
+            selectedList.add(selectedData);
+            selectedPrice += price;
+            tv_price.setText("Price: \u20B9" + selectedPrice);
+        }
+
+        @Override
+        public void onPriceChange(String name, int price) {
+            selectedPrice = 0;
+            selectedData = new BookServiceList(name, price);
+            for (int i = 0; i < selectedList.size(); i++) {
+                if (name.equals(selectedList.get(i).getName())) {
+                    selectedList.set(i, selectedData);
+                }
+
+                selectedPrice += selectedList.get(i).getPrice();
+
+                if (i == (selectedList.size() - 1)) {
+                    tv_price.setText("Price: \u20B9" + selectedPrice);
+                }
+            }
+        }
+
+        @Override
+        public void onPriceDelete(String name, int price) {
+            selectedData = new BookServiceList(name, price);
+            selectedList.remove(selectedData);
+            selectedPrice -= price;
+            tv_price.setText("Price: \u20B9" + selectedPrice);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,30 +84,58 @@ public class BookFirstActivity extends AppCompatActivity {
         rv_bookService = findViewById(R.id.rv_bookService);
         btn_book = findViewById(R.id.button11);
 
+        tv_price.setText("Price: \u20B9 0");
+
+        Glide.with(this).load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX1Zl9dZiTBT8WwG36HWdrMlTvJckwUn5VL4IciQLNVeGc-enk9A")
+                .into(bannerImage);
+
         rv_bookService.setLayoutManager(new LinearLayoutManager(this));
+
+        selectedList = new ArrayList<>();
 
         setPriceList();
         setLadiesList();
         setManList();
 
-        rv_bookService.setAdapter(new BookServiceAdapter(this, manList));
+        rv_bookService.setAdapter(new BookServiceAdapter(this, manList, clickListner));
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 int gender = radioGroup.getCheckedRadioButtonId();
                 RadioButton radioButton = findViewById(gender);
-                if(radioButton.getText().equals("Male")){
-                    rv_bookService.setAdapter(new BookServiceAdapter(BookFirstActivity.this, manList));
+                selectedList.clear();
+                selectedPrice = 0;
+                tv_price.setText("Price: \u20B9 0.00");
+                if (radioButton.getText().equals("Male")) {
+                    rv_bookService.setAdapter(new BookServiceAdapter(BookFirstActivity.this, manList, clickListner));
+                } else {
+                    rv_bookService.setAdapter(new BookServiceAdapter(BookFirstActivity.this, ladiesList, clickListner));
+                }
+            }
+        });
+
+        backImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        btn_book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(selectedPrice == 0){
+                    Toast.makeText(BookFirstActivity.this, "Please select any service for booking", Toast.LENGTH_SHORT).show();
                 }else{
-                    rv_bookService.setAdapter(new BookServiceAdapter(BookFirstActivity.this, ladiesList));
+
                 }
             }
         });
 
     }
 
-    private void setPriceList(){
+    private void setPriceList() {
         serviceList = new ArrayList<>();
         BookServiceList data0 = new BookServiceList("Select service", 0);
         BookServiceList data1 = new BookServiceList("Large", 200);
@@ -79,7 +148,7 @@ public class BookFirstActivity extends AppCompatActivity {
         serviceList.add(data3);
     }
 
-    private void setLadiesList(){
+    private void setLadiesList() {
         ladiesList = new ArrayList<>();
         BookHeadingList ladiesList0 = new BookHeadingList("Haircut", serviceList);
         BookHeadingList ladiesList1 = new BookHeadingList("Spa", serviceList);
@@ -98,7 +167,7 @@ public class BookFirstActivity extends AppCompatActivity {
         ladiesList.add(ladiesList6);
     }
 
-    private void setManList(){
+    private void setManList() {
         manList = new ArrayList<>();
         BookHeadingList manList0 = new BookHeadingList("Hair Style", serviceList);
         BookHeadingList manList1 = new BookHeadingList("Saving", serviceList);

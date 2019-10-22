@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pearl.salon.R;
+import com.pearl.salon.clickListner.BookServiceClickListner;
 import com.pearl.salon.model.book.BookHeadingList;
 import com.pearl.salon.model.book.BookServiceList;
 
@@ -23,10 +24,12 @@ public class BookServiceAdapter extends RecyclerView.Adapter<BookServiceAdapter.
 
     private Context context;
     private ArrayList<BookHeadingList> dataList;
+    private BookServiceClickListner clickListner;
 
-    public BookServiceAdapter(Context context, ArrayList<BookHeadingList> dataList) {
+    public BookServiceAdapter(Context context, ArrayList<BookHeadingList> dataList, BookServiceClickListner clickListner) {
         this.context = context;
         this.dataList = dataList;
+        this.clickListner = clickListner;
     }
 
     @NonNull
@@ -42,7 +45,9 @@ public class BookServiceAdapter extends RecyclerView.Adapter<BookServiceAdapter.
         holder.tv_spinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openPopup(holder.tv_spinner, dataList.get(position).getServiceList());
+                openPopup(holder.tv_spinner, dataList.get(position).getServiceList(),
+                        holder.tv_spinner.getText().toString(),
+                        holder.tv_heading.getText().toString());
             }
         });
     }
@@ -64,7 +69,7 @@ public class BookServiceAdapter extends RecyclerView.Adapter<BookServiceAdapter.
         }
     }
 
-    private void openPopup(final TextView tv_spinner, ArrayList<BookServiceList> serviceList){
+    private void openPopup(final TextView tv_spinner, final ArrayList<BookServiceList> serviceList, final String firstText, final String heading) {
         final PopupMenu menu = new PopupMenu(context, tv_spinner);
         for (int i = 0; i < serviceList.size(); i++) {
             menu.getMenu().add(serviceList.get(i).getName());
@@ -74,7 +79,31 @@ public class BookServiceAdapter extends RecyclerView.Adapter<BookServiceAdapter.
         menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
-                tv_spinner.setText(menuItem.getTitle());
+                String selectedItem = menuItem.getTitle().toString();
+                tv_spinner.setText(selectedItem);
+
+                int pos = 0;
+
+                for (int i = 0; i < serviceList.size(); i++) {
+                    if (selectedItem.equals(serviceList.get(i).getName())) {
+                        pos = i;
+                        break;
+                    }
+                }
+
+                if (selectedItem.equals("Select service")) {
+                    for (int i = 0; i < serviceList.size(); i++) {
+                        if(firstText.equals(serviceList.get(i).getName())){
+                            clickListner.onPriceDelete(heading, serviceList.get(i).getPrice());
+                            break;
+                        }
+                    }
+                } else if (firstText.equals("Select service")) {
+                    clickListner.onPriceAdd(heading, serviceList.get(pos).getPrice());
+                } else {
+                    clickListner.onPriceChange(heading, serviceList.get(pos).getPrice());
+                }
+
                 return false;
             }
         });
