@@ -141,7 +141,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
-                android:drawableTop="@drawable/ic_calendar"
+                android:drawableTop="@drawable/ic_calendar_for_book"
                 android:gravity="center_horizontal"
                 android:text="Book"
                 android:textColor="@color/black" />

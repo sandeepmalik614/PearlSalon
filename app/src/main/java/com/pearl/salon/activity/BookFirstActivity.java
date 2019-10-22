@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -128,7 +129,9 @@ public class BookFirstActivity extends AppCompatActivity {
                 if(selectedPrice == 0){
                     Toast.makeText(BookFirstActivity.this, "Please select any service for booking", Toast.LENGTH_SHORT).show();
                 }else{
-
+                    Intent intent = new Intent(BookFirstActivity.this, BookSecondActivity.class);
+                    intent.putExtra("totalPrice", tv_price.getText().toString());
+                    startActivity(intent);
                 }
             }
         });
