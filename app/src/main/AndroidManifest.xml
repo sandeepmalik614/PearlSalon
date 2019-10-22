@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.BookSecondActivity"></activity>
+        <activity android:name=".activity.BookingDetailsActivity"></activity>
+        <activity android:name=".activity.BookSecondActivity" />
         <activity android:name=".activity.BookFirstActivity" />
         <activity android:name=".activity.StaffProfileActivity" />
         <activity android:name=".activity.GalleryViewActivity" />

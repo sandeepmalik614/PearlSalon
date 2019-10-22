@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -86,7 +87,7 @@ public class BookSecondActivity extends AppCompatActivity {
                if(selectedTimeSlot.equals("")){
                    Toast.makeText(BookSecondActivity.this, "Select any time slot to continue", Toast.LENGTH_SHORT).show();
                }else{
-                   Toast.makeText(BookSecondActivity.this, "Selected time: "+selectedTimeSlot, Toast.LENGTH_SHORT).show();
+                   startActivity(new Intent(BookSecondActivity.this, BookingDetailsActivity.class));
                }
             }
         });
