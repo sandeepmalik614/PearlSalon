@@ -141,6 +141,13 @@ public class HomeActivity extends AppCompatActivity
         if (!AppUtils.isConnectionAvailable(this)) {
             AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
         }
+
+        if(getIntent().getBooleanExtra("goToAppointment", false)){
+            switchFragment(fragment4);
+            toolbar.setTitle("Appointment ");
+            bottomNavView.setSelectedItemId(R.id.nav_appointment);
+        }
+
         super.onResume();
     }
 

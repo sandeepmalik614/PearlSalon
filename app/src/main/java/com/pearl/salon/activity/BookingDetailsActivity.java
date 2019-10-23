@@ -96,4 +96,12 @@ public class BookingDetailsActivity extends AppCompatActivity {
 
         dialog.show();
     }
+
+    public void goToAppointment(View view) {
+        Intent intent = new Intent(this, HomeActivity.class);
+        AppUtils.clearAllIntent(intent);
+        intent.putExtra("goToAppointment", true);
+        startActivity(intent);
+        finish();
+    }
 }
