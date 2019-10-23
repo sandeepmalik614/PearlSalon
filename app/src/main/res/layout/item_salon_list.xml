@@ -7,8 +7,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginTop="16dp">
 
         <TextView
@@ -19,7 +17,8 @@
             android:padding="2dp"
             android:text="Best salon"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginLeft="16dp"/>
 
         <TextView
             android:id="@+id/tv_bestDalonSeeAll"
@@ -28,6 +27,7 @@
             android:layout_alignParentEnd="true"
             android:padding="2dp"
             android:text="See All"
+            android:layout_marginRight="16dp"
             android:textColor="@color/gray" />
 
     </RelativeLayout>
@@ -35,6 +35,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_home_Salon"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"/>
 
 </LinearLayout>

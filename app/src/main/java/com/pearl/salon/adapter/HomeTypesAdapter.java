@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,13 +43,14 @@ public class HomeTypesAdapter extends RecyclerView.Adapter<HomeTypesAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+
         holder.tv_bestSalonTitle.setText(headingList.get(position));
         holder.rv_home_Salon.setLayoutManager(new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false));
         holder.rv_home_Salon.setAdapter(new HomeTypeChildAdapter(context, colorList, salonData.get(position).getSalonData(), homeClickListner));
 
-        if(headingList.get(position).equalsIgnoreCase("Hot Deals")){
+        if (headingList.get(position).equalsIgnoreCase("Hot Deals")) {
             holder.tv_bestDalonSeeAll.setVisibility(View.GONE);
-        }else{
+        } else {
             holder.tv_bestDalonSeeAll.setVisibility(View.VISIBLE);
         }
 
@@ -68,6 +70,7 @@ public class HomeTypesAdapter extends RecyclerView.Adapter<HomeTypesAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
         private RecyclerView rv_home_Salon;
         private TextView tv_bestSalonTitle, tv_bestDalonSeeAll;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 

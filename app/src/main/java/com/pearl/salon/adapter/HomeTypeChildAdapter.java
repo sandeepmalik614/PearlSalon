@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -51,6 +52,7 @@ public class HomeTypeChildAdapter extends RecyclerView.Adapter<HomeTypeChildAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+
         holder.salonImage.setBackgroundColor(Color.parseColor(colorList.get(position)));
         Glide.with(context).load(salonData.get(position).getImage()).into(holder.salonImage);
         holder.title.setText(salonData.get(position).getTitle());

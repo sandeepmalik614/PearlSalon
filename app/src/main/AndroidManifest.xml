@@ -14,11 +14,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.BookingDetailsActivity"></activity>
-        <activity android:name=".activity.BookSecondActivity" />
-        <activity android:name=".activity.BookFirstActivity" />
-        <activity android:name=".activity.StaffProfileActivity" />
-        <activity android:name=".activity.GalleryViewActivity" />
+        <activity
+            android:name=".activity.BookingDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.BookSecondActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.BookFirstActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.StaffProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.GalleryViewActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.SalonDetailActivity"
             android:screenOrientation="portrait" />

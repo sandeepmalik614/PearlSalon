@@ -5,11 +5,13 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.view.Gravity;
 import android.view.View;
@@ -31,6 +33,7 @@ import com.google.firebase.iid.InstanceIdResult;
 import com.pearl.salon.R;
 import com.pearl.salon.activity.OtpVerificationActivity;
 
+import java.net.URLEncoder;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
@@ -176,4 +179,43 @@ public class AppUtils {
                     }
                 });
     }
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(
+                Activity.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+    }
+
+    public static String checkUnsavedNumberOnWhatsapp(Context context, String mobile) {
+        String send = "";
+        if(isConnectionAvailable(context)){
+            String upToNCharacters = mobile.substring(0, Math.min(mobile.length(), 1));
+            if (upToNCharacters.equals("9") || upToNCharacters.equals("8") ||
+                    upToNCharacters.equals("7") || upToNCharacters.equals("6")){
+                PackageManager packageManager = context.getPackageManager();
+                Intent i = new Intent(Intent.ACTION_VIEW);
+
+                try {
+                    String url = "https://api.whatsapp.com/send?phone=" +
+                            "+91 " + mobile + "&text=" + URLEncoder.encode("", "UTF-8");
+                    i.setPackage("com.whatsapp");
+                    i.setData(Uri.parse(url));
+                    if (i.resolveActivity(packageManager) != null) {
+                        context.startActivity(i);
+                        send = "done";
+                    }
+                } catch (Exception e) {
+                    send = "exception";
+                    Toast.makeText(context, "Oops! something went wrong", Toast.LENGTH_SHORT).show();
+                }
+            }else{
+                send = "not valid";
+                Toast.makeText(context, "Please enter a valid mobile number", Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            send = "internet";
+            Toast.makeText(context, "Please check your internet connection", Toast.LENGTH_SHORT).show();
+        }
+        return send;
+    }
+
 }

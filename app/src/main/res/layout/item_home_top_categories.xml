@@ -27,8 +27,8 @@
         android:id="@+id/tv_top_catogires_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="test"
         android:textStyle="bold"
+        android:textSize="12sp"
         android:textColor="@color/black"/>
 
     <TextView
@@ -36,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:visibility="gone"
         android:text="1 Place"
         android:textSize="12dp"/>
 

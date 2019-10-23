@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -30,7 +31,7 @@ public class SalonDetailActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private ImageView salonImage, img_like_salon;
-    private TextView tv_salonName, tv_salonAdd, tv_salonStatus, tv_reviewCount;
+    private TextView tv_salonName, tv_salonAdd, tv_salonStatus, tv_reviewCount, tv_tb_salonName;
     private RatingBar ratingBar;
     private RecyclerView rv_salonSpecialists;
     private boolean isLike = false;
@@ -43,7 +44,7 @@ public class SalonDetailActivity extends AppCompatActivity {
         public void onClick(View view) {
             Intent i2 = new Intent(SalonDetailActivity.this, StaffProfileActivity.class);
             startActivity(i2);
-            overridePendingTransition( R.anim.slide_in_up, R.anim.slide_out_up );
+            overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
         }
     };
 
@@ -58,6 +59,7 @@ public class SalonDetailActivity extends AppCompatActivity {
         rv_salonSpecialists = findViewById(R.id.rv_salonSpecialists);
         img_like_salon = findViewById(R.id.img_like_salon);
         salonImage = findViewById(R.id.imageView16);
+        tv_tb_salonName = findViewById(R.id.tv_tb_salonName);
         tv_salonName = findViewById(R.id.textView31);
         tv_salonAdd = findViewById(R.id.textView30);
         tv_salonStatus = findViewById(R.id.textView28);
@@ -117,6 +119,7 @@ public class SalonDetailActivity extends AppCompatActivity {
         rv_salonSpecialists.setAdapter(new SalonSpecialistAdapter(this, onClickListener));
 
         tv_salonName.setText("Main Street Salon");
+        tv_tb_salonName.setText("Main Street Salon");
         tv_salonAdd.setText("Raquel, Christine & Mamie 3821 Culver City");
         Glide.with(this).load("https://images.squarespace-cdn.com/content/v1/587ed62137c581c9c42fee61/1487379670546-RK2BWY5T8KNSURFC59C8/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/mainstreetsalon-14.jpg?format=2500w")
                 .into(salonImage);
@@ -139,24 +142,29 @@ public class SalonDetailActivity extends AppCompatActivity {
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
 
                 if (scrollY > oldScrollY) {
-                    if(!isDarkTootlbar){
+                    if (!isDarkTootlbar) {
                         isDarkTootlbar = true;
+                        tv_tb_salonName.setTextColor(Color.parseColor("#ffffff"));
                         toolbar.setBackgroundResource(R.color.colorPrimary);
                         Animation fadeIn = AnimationUtils
                                 .loadAnimation(SalonDetailActivity.this, R.anim.fade_in);
                         toolbar.startAnimation(fadeIn);
+                        tv_tb_salonName.startAnimation(fadeIn);
                     }
+
                 }
 
                 if (scrollY == 0) {
                     isDarkTootlbar = false;
+                    tv_tb_salonName.setTextColor(Color.parseColor("#00FFFFFF"));
                     toolbar.setBackgroundResource(R.color.transparent);
                     Animation fadeIn = AnimationUtils
                             .loadAnimation(SalonDetailActivity.this, R.anim.fade_in);
                     toolbar.startAnimation(fadeIn);
+                    tv_tb_salonName.startAnimation(fadeIn);
                 }
 
-                if (scrollY == ( v.getMeasuredHeight() - v.getChildAt(0).getMeasuredHeight() )) {
+                if (scrollY == (v.getMeasuredHeight() - v.getChildAt(0).getMeasuredHeight())) {
                     Toast.makeText(SalonDetailActivity.this, "BOTTOM SCROLL", Toast.LENGTH_SHORT).show();
                 }
             }
