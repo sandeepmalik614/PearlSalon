@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pearl.salon.R;
+import com.pearl.salon.activity.CategoryViewActivity;
 import com.pearl.salon.activity.SalonDetailActivity;
 import com.pearl.salon.adapter.HomeTypesAdapter;
 import com.pearl.salon.adapter.MainTopCategoriesAdapter;
@@ -75,7 +76,9 @@ public class HomeFragment extends Fragment {
     private TopCategoriesClickListner topCategoriesClickListner = new TopCategoriesClickListner() {
         @Override
         public void onClick(String categoryName) {
-            Toast.makeText(getActivity(), "" + categoryName, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(), CategoryViewActivity.class);
+            intent.putExtra("categoryName", categoryName);
+            startActivity(intent);
         }
     };
 
