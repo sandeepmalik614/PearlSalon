@@ -1,7 +1,14 @@
 package com.pearl.salon.activity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import com.facebook.login.LoginManager;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -9,6 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 
@@ -25,6 +33,7 @@ import com.pearl.salon.fragment.HomeFragment;
 import com.pearl.salon.fragment.InboxFragment;
 import com.pearl.salon.fragment.NearbyFragment;
 import com.pearl.salon.fragment.ProfileFragment;
+import com.pearl.salon.utils.AppPrefference;
 import com.pearl.salon.utils.AppUtils;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -36,6 +45,11 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -112,21 +126,25 @@ public class HomeActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
+        if (id == R.id.nav_logout) {
 
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_tools) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Logout");
+            builder.setMessage("Are you sure, you want to logout?");
+            builder.setPositiveButton("Logout", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    LoginManager.getInstance().logOut();
+                    AppPrefference.clearAllPreferences(HomeActivity.this);
+                    AppPrefference.setIntroComplete(HomeActivity.this, true);
+                    Intent intent = new Intent(HomeActivity.this, SocialLoginActivity.class);
+                    AppUtils.clearAllIntent(intent);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+            builder.show();
         }
-
-        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
@@ -142,7 +160,7 @@ public class HomeActivity extends AppCompatActivity
             AppUtils.showBottomToast(this, "No internet connection, Please check your internet connection");
         }
 
-        if(getIntent().getBooleanExtra("goToAppointment", false)){
+        if (getIntent().getBooleanExtra("goToAppointment", false)) {
             switchFragment(fragment4);
             toolbar.setTitle("Appointment ");
             bottomNavView.setSelectedItemId(R.id.nav_appointment);

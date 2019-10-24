@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ import com.pearl.salon.fragment.salonDetailsFragments.SalonAboutFragment;
 import com.pearl.salon.fragment.salonDetailsFragments.SalonGalleryFragment;
 import com.pearl.salon.fragment.salonDetailsFragments.SalonReviewFragment;
 import com.pearl.salon.fragment.salonDetailsFragments.SalonServicesFragment;
+import com.pearl.salon.utils.AppUtils;
 
 public class SalonDetailActivity extends AppCompatActivity {
 
@@ -38,6 +40,7 @@ public class SalonDetailActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private NestedScrollView nsv_salonDetail;
     private boolean isDarkTootlbar = false;
+    private LinearLayout ll_share;
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
@@ -66,6 +69,7 @@ public class SalonDetailActivity extends AppCompatActivity {
         tv_reviewCount = findViewById(R.id.textView29);
         ratingBar = findViewById(R.id.ratingBarDetailPage);
         nsv_salonDetail = findViewById(R.id.nsv_salonDetail);
+        ll_share = findViewById(R.id.ll_share_salon_details);
         toolbar = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
 
@@ -167,6 +171,13 @@ public class SalonDetailActivity extends AppCompatActivity {
                 if (scrollY == (v.getMeasuredHeight() - v.getChildAt(0).getMeasuredHeight())) {
                     Toast.makeText(SalonDetailActivity.this, "BOTTOM SCROLL", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        ll_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppUtils.share(SalonDetailActivity.this, "Pearl Salon youtube video: https://www.youtube.com/watch?v=2Nc2ZI-pZhQ");
             }
         });
 

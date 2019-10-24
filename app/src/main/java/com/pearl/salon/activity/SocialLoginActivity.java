@@ -14,8 +14,10 @@ import android.os.Handler;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -53,6 +55,7 @@ import static com.pearl.salon.utils.AppUtils.clearAllIntent;
 
 public class SocialLoginActivity extends AppCompatActivity {
 
+    private ImageView backImage;
     private boolean doublePressedExit = false;
     private FirebaseAuth mAuth;
     private GoogleSignInOptions gso;
@@ -70,6 +73,7 @@ public class SocialLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_social_login);
 //        AppUtils.setBarTransparent(this);
 
+        backImage = findViewById(R.id.imageView3);
         loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setPermissions(EMAIL);
 //        loginButton.setLoginBehavior(LoginBehavior.WEB_ONLY);

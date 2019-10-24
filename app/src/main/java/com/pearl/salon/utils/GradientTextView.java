@@ -32,8 +32,8 @@ public class GradientTextView extends TextView {
         if (changed) {
             getPaint().setShader(new LinearGradient(0, 0, getWidth(), getHeight(),
                     ContextCompat.getColor(getContext(), R.color.secondry),
-                    ContextCompat.getColor(getContext(), R.color.colorAccent),
-                    Shader.TileMode.CLAMP));
+                    ContextCompat.getColor(getContext(), R.color.colorPrimary),
+                    Shader.TileMode.MIRROR));
         }
     }
 }

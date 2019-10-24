@@ -30,6 +30,7 @@ import java.util.Objects;
 import java.util.Random;
 
 import static com.pearl.salon.utils.AppUtils.generateLightRenadomNumber;
+import static com.pearl.salon.utils.AppUtils.generateRandomNumber;
 
 
 /**
@@ -280,74 +281,5 @@ public class HomeFragment extends Fragment {
         latestSalonData.add(data7);
         latestSalonData.add(data8);
         latestSalonData.add(data9);
-    }
-
-    private String generateRandomNumber() {
-        Random r = new Random();
-        int i = r.nextInt(20 - 1) + 1;
-        String image = "";
-        switch (i) {
-            case 1:
-                image = "https://img4.nbstatic.in/tr:w-500/5cc941465f1503000d3ab644.png";
-                break;
-            case 2:
-                image = "https://www.hughcampbellhairgroup.com/files/2017/03/MARSALONPM.jpg";
-                break;
-            case 3:
-                image = "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80";
-                break;
-            case 4:
-                image = "https://lh3.googleusercontent.com/1I0GR6VnT28qSfTiaFxeKe_JGNVsNcm_qdIXwLkSf-lNSVUPqFRU5ngebDxrkeQ5h8ufbOI=w1080-h608-p-no-v0";
-                break;
-            case 5:
-                image = "https://images.jdmagicbox.com/comp/delhi/s6/011pxx11.xx11.180309151252.p4s6/catalogue/d-and-a-the-unisex-salon-rohini-delhi-beauty-parlours-for-makeup-6vkqykyndg.jpg";
-                break;
-            case 6:
-                image = "https://du0xldifh78n8.cloudfront.net/c/m.icapellisalon.com/a355920/5496b20d28ae215a801514bc43591c7e/2/1920";
-                break;
-            case 7:
-                image = "https://www.salonpricelady.com/wp-content/uploads/2016/02/hair-salon-inside.jpg";
-                break;
-            case 8:
-                image = "https://images.jdmagicbox.com/comp/delhi/s6/011pxx11.xx11.180309151252.p4s6/catalogue/d-and-a-the-unisex-salon-rohini-delhi-beauty-parlours-for-makeup-6vkqykyndg.jpg";
-                break;
-            case 9:
-                image = "https://www.salonpricelady.com/wp-content/uploads/2016/02/hair-salon-inside.jpg";
-                break;
-            case 10:
-                image = "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80";
-                break;
-            case 11:
-                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS25SCC4tst_KTWXEETf2ZIJ7Gp_NE_JVIeL7dfXMZyrPKe2xRU";
-                break;
-            case 12:
-                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ-N35EcvQuayhKqEFppgS2ltBCJHrKKAhiilLwTfAHhBIrghp";
-                break;
-            case 13:
-                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCoAwJdTHaYcrTB18i9QByQ13AIHteQDjqDuxIcWI4NtOzSn-Hbg";
-                break;
-            case 14:
-                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXnsCqxjKqYQV-sIJfyH7yIGi4geC1g7aZ40lTXyiho4D8vugQkA";
-                break;
-            case 15:
-                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtlQefVeISRBVJvLkUcWF9-02M5ZW-bq4KrCOQHHdjzcU76strMw";
-                break;
-            case 16:
-                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9Wl3PhwRSZWi5vUyWrAqf0SOoWNKormLv_cJfcyHI6sbpjq7pKw";
-                break;
-            case 17:
-                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQhF_LPPyePDlh8CVcKw59JA439INJCsO0KTmoVq4O0JFVdXfdfw";
-                break;
-            case 18:
-                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMwRg_sB9uiZw5O9ACwDNdrAZ9rN_DPs3wSYyim3VB-H-OwRi0";
-                break;
-            case 19:
-                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-S9XB0THJiPyce6n-BkUzJ74ee5NXKsNf3pzEpBUxfFck9_CH";
-                break;
-            case 20:
-                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXoY1MWzq55e8zqLJE8T2E0vK_mrUTSGvqoQ_UD9f7Pbq16QZs";
-                break;
-        }
-        return image;
     }
 }

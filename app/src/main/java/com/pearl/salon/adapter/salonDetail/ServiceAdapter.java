@@ -43,7 +43,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
 
         String color = colorList.get(position);
         holder.serviceImage.setBackgroundColor(Color.parseColor(color));
-        Glide.with(context).load("https://img4.nbstatic.in/tr:w-500/5cc941465f1503000d3ab644.png").into(holder.serviceImage);
+        Glide.with(context).load(arrayList.get(position).getImage()).into(holder.serviceImage);
         holder.serviceName.setText(arrayList.get(position).getServiceName());
         holder.serviceType.setText(arrayList.get(position).getServiceType());
 
