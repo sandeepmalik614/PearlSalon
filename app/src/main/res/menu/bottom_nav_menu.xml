@@ -8,22 +8,22 @@
 
     <item
         android:id="@+id/nav_nearby"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/ic_nearby"
         android:title="Nearby" />
 
     <item
         android:id="@+id/nav_inbox"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@drawable/ic_inbox_24dp"
         android:title="Inbox" />
 
     <item
         android:id="@+id/nav_appointment"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@drawable/ic_appointment"
         android:title="Appointment" />
 
     <item
         android:id="@+id/nav_profile"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@drawable/ic_profile_24dp"
         android:title="Profile" />
 
 </menu>
