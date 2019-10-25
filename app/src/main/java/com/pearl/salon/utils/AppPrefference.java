@@ -81,6 +81,18 @@ public class AppPrefference {
         return mPrefs.getString("userName", "");
     }
 
+    public static void setUserImage(Context ctx, String name){
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        mPrefsEditor = mPrefs.edit();
+        mPrefsEditor.putString("userImage", name);
+        mPrefsEditor.apply();
+    }
+
+    public static String getUserImage(Context ctx){
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        return mPrefs.getString("userImage", "");
+    }
+
     public static void setUserGender(Context ctx, String gender){
         mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
         mPrefsEditor = mPrefs.edit();

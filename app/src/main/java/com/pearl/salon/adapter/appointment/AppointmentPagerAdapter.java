@@ -1,4 +1,4 @@
-package com.pearl.salon.adapter;
+package com.pearl.salon.adapter.appointment;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -46,11 +46,11 @@ public class AppointmentPagerAdapter extends FragmentPagerAdapter {
         }
         else if (position == 1)
         {
-            title = "Up Coming";
+            title = "Upcoming";
         }
         else if (position == 2)
         {
-            title = "Canceled";
+            title = "Cancelled";
         }
         return title;
     }

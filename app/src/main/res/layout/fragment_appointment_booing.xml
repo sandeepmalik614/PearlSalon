@@ -7,6 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".fragment.appointmentHistoryFragment.AppointmentBooingFragment">
 
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_app_booking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>

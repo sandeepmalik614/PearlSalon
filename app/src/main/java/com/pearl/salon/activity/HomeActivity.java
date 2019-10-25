@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import com.bumptech.glide.Glide;
 import com.facebook.login.LoginManager;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -35,6 +36,7 @@ import com.pearl.salon.fragment.NearbyFragment;
 import com.pearl.salon.fragment.ProfileFragment;
 import com.pearl.salon.utils.AppPrefference;
 import com.pearl.salon.utils.AppUtils;
+import com.pearl.salon.utils.CircleImageView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -61,6 +63,9 @@ public class HomeActivity extends AppCompatActivity
     private boolean doublePressedExit = false;
     private BottomNavigationView bottomNavView;
     private DrawerLayout drawer;
+    private NavigationView navigationView;
+    private CircleImageView userImage;
+    private TextView tv_username, tv_email;
     final Fragment fragment1 = new HomeFragment();
     final Fragment fragment2 = new NearbyFragment();
     final Fragment fragment3 = new InboxFragment();
@@ -108,7 +113,8 @@ public class HomeActivity extends AppCompatActivity
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -117,6 +123,7 @@ public class HomeActivity extends AppCompatActivity
         bottomNavView = findViewById(R.id.bottom_nav_view);
         bottomNavView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         switchFragment(fragment1);
+        setSideDetails();
     }
 
 
@@ -152,6 +159,16 @@ public class HomeActivity extends AppCompatActivity
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_frame, fragment);
         fragmentTransaction.commit();
+    }
+
+    private void setSideDetails(){
+        userImage = findViewById(R.id.imageView34);
+        tv_username = findViewById(R.id.textView97);
+        tv_email = findViewById(R.id.textView98);
+
+        Glide.with(this).load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQthOsl8408U1hItQ2a2souAu_kZY05Ss8h8xvRSjvCOPXuRN4C&s").into(userImage);
+        tv_username.setText(AppPrefference.getUserName(this));
+        tv_email.setText("1234567890");
     }
 
     @Override
